@@ -1,0 +1,73 @@
+<div style="height:100%;background:#fff" ng-hide="newGroup" ng-init="newGroup = false">
+	<form class="search-chatlist" background: rgb(139, 195, 74); color: rgba(255, 255, 255, 0.870588);>
+		<input type="text" placeholder="search" class="custom-input" ng-model="filterChatList">
+	</form>
+	<md-content style="overflow: visible;">
+      	<md-list flex class="md-dense">
+	        <md-list-item class="md-3-line select-chat" ng-repeat="chatList in availableChat | filter: filterChatList" ng-show="user._id != chatList._id" ng-click="setChatTo(chatList,$index)" ng-class='{active:$index == selectedIndex}'>
+	          <img ng-src="https://randomuser.me/api/portraits/women/50.jpg" class="md-avatar" />
+	          <div class="md-list-item-text" layout="column">
+
+	            <h4>{{chatList.fullname || chatList.name}} <span class="notification" ng-show="chatList.notification">{{chatList.notification}}</span></h4>
+
+	          </div>
+	        </md-list-item>
+	        <md-divider ></md-divider>
+	    </md-list>
+	</md-content>
+		
+	<md-fab-speed-dial ng-hide="demo.hidden" md-direction="up" md-open="demo.isOpen"
+	    class="md-scale md-fab-bottom-right" ng-class="{ 'md-hover-full': demo.hover }" style="bottom:5px;right:5px">
+	  <md-fab-trigger>
+	    <md-button aria-label="menu" class="md-fab md-warn">
+	      <md-icon><i class="material-icons">add</i></md-icon>
+	    </md-button>
+	  </md-fab-trigger>
+
+	  <md-fab-actions>
+	    <div>
+	      <md-button class="md-raised md-mini md-warn-accent" ng-click="newGroup = true">
+			new group
+	      </md-button>
+	    </div>
+	  </md-fab-actions>
+	</md-fab-speed-dial>
+</div>
+<div style="height:100%;background:#fff" ng-hide="!newGroup">
+
+	<form class="new-group-form">
+		<div class="group-form-heading">
+			<label >Group Name</label>
+			<input type="text" placeholder="Enter group Name" class="custom-input border-bottom" ng-model="group.name">
+		</div>
+		<md-content>
+	      	<md-list flex class="md-dense">
+		        <md-subheader class="md-no-sticky">Select Members</md-subheader>
+
+		        <md-list-item class="md-3-line" ng-repeat="chatList in availableChat" ng-show="user._id != chatList._id" ng-click="addGroupMember(chatList._id)" ng-class="{active : addedMember(chatList._id),'selected-member' : addedMember(chatList._id)}">
+		          <img ng-src="https://randomuser.me/api/portraits/women/50.jpg" class="md-avatar" />
+		          <div class="md-list-item-text" layout="column">
+		            <h4>{{chatList.fullname}}</h4>
+		          </div>
+		          <span ng-if="addedMember(chatList._id)">
+		          	<i class="material-icons">done</i>
+		          </span>
+		        </md-list-item>
+
+		        <md-divider ></md-divider>
+		    </md-list>
+		</md-content>
+		<div class="group-form-footer">
+			<md-button class="md-raised md-mini md-warn md-fab" ng-click="newGroup = false; clearMembers()" >
+				<md-icon><i class="material-icons">clear</i></md-icon>	
+				
+	      	</md-button>
+			<md-button class="md-raised md-mini md-primary md-fab" ng-click="newGroup = false;createGroup();">
+				<md-icon><i class="material-icons">done_all</i></md-icon>
+				
+	      	</md-button>
+		</div>
+	</form>
+</div>
+
+		

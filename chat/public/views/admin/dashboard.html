@@ -1,0 +1,22 @@
+<div ng-include="'views/master/headerAdmin.html'"></div>
+Total Online users : {{!rooms ? 0 : rooms.length * 2}} <br>
+Banned users : 0 <br>
+
+<button class="btn btn-default" data-ng-click="getScreenshots()">Refresh</button>
+<!--<button class="btn btn-default" ui-sref="blockedUsers">Blocked Users</button>-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" data-ng-repeat="image in screenshots">
+      <div class="users_screenshots" id="image.id">
+        <img ng-src="{{image.image}}" alt="" class="img-responsive" data-ng-click="addUserToBanList($event,image.id,image.room)" />
+        <div class="overlay" data-ng-click="banUser()"><p>Confirm Ban</p></div>
+      </div>
+    </div>
+  </div>
+  Selected user {{selectedUsersForBan}}
+  <div class="row" data-ng-show="screenshots">
+    <div class="col-md-3 col-md-offset-3 text-center">
+      <!-- <button data-ng-click="banUser()" class="btn btn-primary">Ban Selected Users</button> -->
+    </div>
+  </div>
+</div>

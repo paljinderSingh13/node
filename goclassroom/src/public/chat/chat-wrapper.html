@@ -1,0 +1,37 @@
+<div layout="row" style="margin-top: 45px;">
+	<div flex="80" style="overflow:hidden">
+		<div layout="column" class="messages" style="padding: 0" ng-hide="emitTo._id">
+			<div flex="100" class="message-body" >
+				<md-toolbar class="md-danger">
+				    <div class="md-toolbar-tools">
+				      <h3 class="md-flex">Click a user to chat with</h3>
+				    </div>
+			  	</md-toolbar>
+			 </div>
+	  	</div>
+		<div layout="column" class="messages" ng-show="emitTo._id">
+			<div flex="85" class="message-body" >
+				<div ui-view="chat-messages" ng-nicescroll nice-option="{cursorcolor: '#3CB371'}" class="messages-window"> </div>
+			</div>
+			<div flex="15" class="message-footer">
+				<div ui-view="chat-footer"></div>
+			</div>
+		</div>
+	</div>
+	<div flex="20" class="users" layout="column">
+		<div ui-view="users" flex="100" style="position:relative"></div>
+	</div>
+</div>
+
+<script>
+    setTimeout(()=>{
+        document.getElementById("section-right-container").onkeydown = function(event) {
+            if(event.code == 'Escape'){
+                var emojiList = document.querySelector('.wdt-emoji-popup');
+                emojiList.classList.remove("open");
+            }
+        };
+        
+    },1000)
+</script>
+

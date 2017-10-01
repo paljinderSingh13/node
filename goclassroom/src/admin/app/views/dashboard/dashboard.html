@@ -1,0 +1,92 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+			<h4>Home</h4>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-bottom">
+		<div layout="row" class="custom-cards layout-fill layout-margin layout-row" style="min-height: 100px;">
+			<div class="flex">
+				<div class="card orangebg">
+					<div layout="row" layout-align="space-between center" class="layout-align-space-between-center layout-row">
+						<div>
+							<h4>Groups</h4>
+							<h2>{{ allGroups.length }}</h2>
+						</div>
+						<div>
+							<img class="right" src="public/assets/imgs/class.png" alt="">
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="flex">
+				<div class="card orangebg">
+					<div layout="row" layout-align="space-between center" class="layout-align-space-between-center layout-row">
+						<div>
+							<h4>Institutes</h4>
+							<h2>{{ allInst.length }}</h2>
+						</div>
+						<div>
+							<img class="right" src="public/assets/imgs/subjects.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex">
+				<div class="card orangebg">
+					<div layout="row" layout-align="space-between center" class="layout-align-space-between-center layout-row">
+						<div>
+							<h4>Users</h4>
+							<h2>500</h2>
+						</div>
+						<div>
+							<img class="right" src="public/assets/imgs/groups.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<md-content layout-padding layout-wrap>
+			<h3>Pending Institutes for Approval</h3>
+		    <md-table-container>
+			  <table md-table ng-model="selected" md-progress="promise">
+			    <thead md-head>
+			      <tr md-row>
+			        <th md-column>Group/Intitute</th>
+			       	<td md-column>Created User</td>
+			       	<td md-column>User Phone</td>
+			       	<td md-column>User Email</td>
+			        <th md-column>Status</th>
+			        <th md-column>Actions</th>
+			      </tr>
+			    </thead>
+			    <tbody md-body>
+			      <tr md-row ng-repeat="group in allInst" ng-if="!group.isApproved">
+			        <td md-cell>{{ group.name }}</td>
+			        <td md-cell>{{ group.createdUser.fullname }}</td>
+			        <td md-cell>{{ group.createdUser.phone }}</td>
+			        <td md-cell>{{ group.createdUser.email }}</td>
+			        <td md-cell>Waiting for approval</td>
+			        <td md-cell>
+			        	<md-menu md-position-mode="target-right target" >
+				          <md-button aria-label="Actions" class="md-icon-button md-primary" ng-click="$mdOpenMenu($event)">
+				            <md-icon><i class="material-icons">more_vert</i></md-icon>
+				          </md-button>
+				          <md-menu-content width="2" >
+				            <md-menu-item>
+				            	<md-button class="md-warn" ng-click="getInstData(group._id, 'details')">Details</md-button>
+				            </md-menu-item>
+				          </md-menu-content>
+				        </md-menu>
+	        		</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</md-table-container>
+		</md-content>
+	</div>
+	<div class="clear"></div>
+</div>

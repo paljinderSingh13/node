@@ -1,0 +1,67 @@
+<div class="section-right-middle">
+    <div class="section-right-middle-left">
+        <div class="section-right-middle-left-2">
+            <h5>Dashboard / </h5>
+            <h4>Sections</h4> </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section-right-middle-right right-align"  ng-if="subjects.length > 0">
+        <md-button class="md-raised md-primary" ui-sref="sections.add" aria-label="description" md-ripple-size="full">
+        	<i class="icon_add"></i>&nbsp;&nbsp;Add New Section
+        </md-button>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here" ng-if="subjects.length == 0">
+    	<md-menu-content>
+    		<h3>You need atleast one Class to create section. Please go ahead and add Class.</h3>
+    	</md-menu-content>
+    </div>
+    <div class="content-here" ng-if="subjects.length > 0">
+		
+		<!-- exact table from live demo -->
+		<md-table-container>
+		  <table md-table ng-model="selected" md-progress="promise">
+		    <thead md-head>
+		      <tr md-row>
+		        <th md-column>Name</th>
+		        <th md-column>Subject</th>
+		        <th md-column>{{ label }}</th>
+		        <th md-column>Status</th>
+		        <th md-column>Actions</th>
+		      </tr>
+		    </thead>
+		    <tbody md-body>
+		      <tr md-row ng-repeat="class in classes">
+		        <td md-cell>{{ class.name }}</td>
+		        <td md-cell>{{ class.subjectId.name }}</td>
+		        <td md-cell>{{ class.groupId.name }}</td>
+		        <td md-cell>
+		        	<p ng-if="class.isActive">Active</p>
+					<p ng-if="!class.isActive">Disabled</p>
+		        </td>
+		        <td md-cell>
+		        	<md-menu md-position-mode="target-right target" >
+			          <md-button aria-label="Actions" class="md-icon-button md-primary" ng-click="$mdOpenMenu($event)">
+			            <md-icon><i class="material-icons">more_vert</i></md-icon>
+			          </md-button>
+			          <md-menu-content width="2" >
+			            <md-menu-item>
+			            	<md-button class="md-warn" ng-click="getData(class._id, 'details')">Details</md-button>
+			            </md-menu-item>
+			            <md-menu-item ng-if="user._id == class.createdUser._id || user.role == 1">
+			            	<md-button class="md-warn" ng-click="getData(class._id, 'edit')">Edit</md-button>
+			            </md-menu-item>
+			          </md-menu-content>
+			        </md-menu>
+        		</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</md-table-container>
+
+		<md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+    </div>
+    
+</div>

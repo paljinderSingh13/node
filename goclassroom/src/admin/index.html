@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+<html data-ng-app="admin">
+    <base href="/">
+    <head>
+        <title>GoClassrooms</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!--Import Google Icon Font-->
+
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+        <!--Material Css-->
+       	<link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
+        <!-- <link rel="stylesheet" href="public/lib/materialize/dist/css/materialize.min.css"> -->
+        <link rel="stylesheet" type="text/css" href="lib/angular-material-data-table/dist/md-data-table.min.css">
+
+        <!--Custom Css-->
+        <link type="text/css" rel="stylesheet" href="admin/assets/css/style.css" media="screen,projection" />
+
+
+        <!-- loading bar -->
+        <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+        <link type="text/css" rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.min.css" />
+
+    </head>
+
+    <body class="login-screen">
+        <div id="loading-bar-container"></div>
+        <ui-view></ui-view>
+   
+        <!-- Scripts-->
+        <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
+        <script type="text/javascript" src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+
+        <!--  -->
+        <script src="lib/angular-animate/angular-animate.min.js"></script>
+        <script src="lib/angular-aria/angular-aria.min.js"></script>
+        <script src="lib/angular-messages/angular-messages.min.js"></script>
+
+        <script src="lib/angular-loading-bar/build/loading-bar.min.js"></script>
+        
+         <!-- Angular Material Library -->
+        <script src="lib/angular-material/angular-material.min.js"></script>
+        <script src="lib/angular-material-data-table/dist/md-data-table.min.js"></script>
+        
+        <!-- customs-->
+        <script src="admin/app/app.js"></script>
+        <script src="admin/app/routes/adminRoutes.js"></script>
+        <script src="admin/app/controllers/adminController.js"></script>
+        <script src="admin/app/services/adminServices.js"></script>
+        <script src="admin/app/services/commonServices.js"></script>
+        <!-- chat module dependencies -->
+        <script src="lib/ng-dialog/js/ngDialog.min.js"></script>
+        
+    </body>
+</html>

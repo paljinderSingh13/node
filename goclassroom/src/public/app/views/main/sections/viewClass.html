@@ -1,0 +1,76 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Section / {{ class.name }} </h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="sections.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all sections
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<div layout="row">
+				<div flex>
+
+					<h3>
+						<md-icon>
+			    			<a href="javascript:void(0);" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+			    		</md-icon>
+			    		&nbsp;{{ class.name }}
+			    	</h3>
+				</div>
+				<div flex ng-if="user._id == class.createdUser._id || user.role == 1">
+					<md-button class="md-fab md-warn float-right" ng-click="delete(class._id)">
+			    		<md-icon>
+			    			<i class="material-icons">delete</i>
+			    		</md-icon>
+			    	</md-button>
+			    	<md-button class="md-fab md-warn float-right" ng-click="getData(class._id, 'edit')">
+			    		<md-icon>
+			    			<i class="material-icons">edit</i>
+			    		</md-icon>
+			    	</md-button>
+				</div>	
+			</div>
+			<div layout="row">
+				<div flex>
+					<p>Section ID</p>
+					<span>{{ class.clsid }}</span>
+				</div>
+				<div flex>
+					<p>{{ label }}</p>
+					<span>{{ class.groupId.name }}</span>
+				</div>
+				<div flex>
+					<p>Subject</p>
+					<span>{{ class.subjectId.name }}</span>
+				</div>
+			</div>
+			<br>
+			<div layout="row">
+				<div flex>
+					<p>Created By</p>
+					<span>{{ class.createdUser.fullname }}</span>
+				</div>			
+				<div flex="66">
+					<p>Created Date</p>
+					<span>{{ class.createdDate | date : 'dd-MM-yyyy' }}</span>
+				</div>
+			</div>
+			<br>
+			<div layout="row">
+				<div flex>
+					<p>Description</p>
+					<span>{{ class.description }}</span>
+				</div>
+			</div>
+			<br>
+		</md-content>
+	</div>
+</div>

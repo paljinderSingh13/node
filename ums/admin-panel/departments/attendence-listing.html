@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attendance Listing</title>
+    <!-- datatable css -->
+    <link rel="stylesheet" href="../../assets/css/jquery.dataTables.min.css">
+    <link href="../../assets/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
+
+    <!-- bootstrap elements css -->
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap-datepicker.min.css" />
+
+    <!-- font awesome css -->
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <!-- google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Asap:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- custom css -->
+    <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <!--  loading icon -->
+    <div id="loading">
+        <p><img src="../../assets/images/loader.gif" alt="Loading..." />
+            <br/> Loading...
+        </p>
+    </div>
+
+    <div class="main-wrapper">
+
+        <!--  header part -->
+        <header class="header-1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="logo">
+                            <a href="#"><img src="../../assets/images/logo.png" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 pull-right">
+
+                        <!-- user logut session -->
+                        <div class="user-logout pull-right">
+                            <figure>
+                                <img src="../../assets/images/billy.png">
+                            </figure>
+                            <p>Welcome,
+                                <br><span>Billy Larson</span></p>
+                            <a href="#" class="logout"></a>
+                        </div>
+
+                        <!-- icons panel -->
+                        <div class="icons-panel pull-right">
+                            <ul>
+                                <!--                                 <li>
+                                    <a href="#">
+                                        <span class="notification">2</span>
+                                        <img src="../../assets/images/icons/notification.png" alt="" />
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <a href="#">
+                                        <img src="../../assets/images/icons/setting.png" alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- user role -->
+                        <div class="role-user pull-right">
+                            <p> administrative</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- navigation part -->
+        <div class="navigation">
+            <div class="container">
+                <div class="heading-link">
+                    <ol class="breadcrumb" style="margin-bottom: 5px;">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Dashboard</a></li>
+                      <li><a href="#">Department</a></li>
+                      <li><a href="#">Attendance</a></li>
+                    </ol>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="with-nav">BCA PART-1 (MATHEMATICS)</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="brand-btn medium fill pull-right" href="../../dashboard.html">
+                      go to main dashboard
+                   </a>
+                        </div>
+                    </div>
+                </div>
+
+                  <nav class="navbar navbar-brand">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="index.html">dashboard</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="departments.html">Departments</a></li>
+                                <li><a href="course.html">Courses</a></li>
+                                <li><a href="staff.html">Staff</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lecture
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="lecture-upload.html">Lecture Upload</a></li>
+                                <li><a href="lecture-adjustment.html">Adjustment</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="timetable.html">Timetable</a></li>
+                        <li class="active"><a href="attendence-listing.html">Attendance</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Class Test
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="schedule-test.html">Schedule Test</a></li>
+                                <li><a href="marks-upload.html">Test Results</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="user-activity.html"><span class="notification-menu">2</span>User Activity</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- data table listing -->
+        <div class="data-table content-box pre-load">
+            <div class="container">
+                <div class="timeline">
+                    <!-- header timeline -->
+                    <div class="timeline-header" id="all-1">
+                        <h1 class="pull-left">24-03-2016<span></span></h1>
+                        <ul class="pull-left">
+                            <li id="all-present"><a href="#"><img src="../../assets/images/icons/present.png" alt="" />&nbsp;&nbsp;All present</a></li>
+                            <li id="all-absent"><a href="#"><img src="../../assets/images/icons/absent.png" alt="" />&nbsp;&nbsp;All Absent</a></li>
+                            <li id="upload-csv"><a href="#">Upload CSV</a></li>
+                        </ul>
+                    </div>
+                    <!-- timeline content -->
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <!-- timeline - 1 -->
+                       <div class="outer-timeline">
+                        <div class="heading">
+                           <ul>
+                              <li>Roll Number</li>
+                               <li>Student Name</li>
+                                <li id="mobile">Mobile Number</li>
+                                 <li>Attendance</li>
+                           </ul>
+                         </div>
+                        <div class="timeline-item">
+                              <div class="timeline-left-content"> 
+                                <ul>
+                                  <li class="info-1"><img src="../../assets/images/attendance-1.png"  alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present" class="present" name="selector">
+                                        <label for="present">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent" name="selector" class="absent">
+                                        <label for="absent">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                        <!--2 -->
+                          <div class="timeline-item">
+                              <div class="timeline-left-content"> <!-- change class to timeline-left-content -->
+                                <ul>
+                                  <li class="info-1"> <img src="../../assets/images/attendance-1.png" alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present1" class="present" name="selector1">
+                                        <label for="present1">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent1" name="selector1" class="absent">
+                                        <label for="absent1">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                             <!--2-->
+                              <!--3 -->
+                       <div class="timeline-item">
+                              <div class="timeline-left-content"> <!-- change class to timeline-left-content -->
+                                <ul>
+                                  <li class="info-1"> <img src="../../assets/images/attendance-1.png" alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present2" class="present" name="selector2">
+                                        <label for="present2">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent2" name="selector2" class="absent">
+                                        <label for="absent2">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                             <!--3-->
+                              <!--4 -->
+                          <div class="timeline-item">
+                              <div class="timeline-left-content"> <!-- change class to timeline-left-content -->
+                                <ul>
+                                  <li class="info-1"> <img src="../../assets/images/attendance-1.png" alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present3" class="present" name="selector3">
+                                        <label for="present3">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent3" name="selector3" class="absent">
+                                        <label for="absent3">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                             <!--4-->
+                          <!--5 -->
+                          <div class="timeline-item">
+                              <div class="timeline-left-content"> <!-- change class to timeline-left-content -->
+                                <ul>
+                                  <li class="info-1"> <img src="../../assets/images/attendance-1.png" alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present4" class="present" name="selector4">
+                                        <label for="present4">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent4" name="selector4" class="absent">
+                                        <label for="absent4">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                             <!--5-->
+
+                             <!--6-->
+                              <div class="timeline-item">
+                              <div class="timeline-left-content"> <!-- change class to timeline-left-content -->
+                                <ul>
+                                  <li class="info-1"> <img src="../../assets/images/attendance-1.png" alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present5" class="present" name="selector5">
+                                        <label for="present5">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent5" name="selector5" class="absent">
+                                        <label for="absent5">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                             <!--6-->
+                              <!--7-->
+                               <div class="timeline-item">
+                              <div class="timeline-left-content"> <!-- change class to timeline-left-content -->
+                                <ul>
+                                  <li class="info-1"> <img src="../../assets/images/attendance-1.png" alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present6" class="present" name="selector6">
+                                        <label for="present6">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent6" name="selector6" class="absent">
+                                        <label for="absent6">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                             <!--7-->
+                              <!--8-->
+                               <div class="timeline-item">
+                              <div class="timeline-left-content"> <!-- change class to timeline-left-content -->
+                                <ul>
+                                  <li class="info-1"> <img src="../../assets/images/attendance-1.png" alt="" /></li>
+                                  <li class="info-text-black"> <img class="abs-image" src="../../assets/images/icons/absent.png" alt="">
+                                  <img class="pre-image" src="../../assets/images/icons/present.png" alt="">  456325346323433</li>
+                                  <li class="info-text-black">Rahul rawat singh</li>
+                                  <li class="info-text-black">01234567899</li>
+                                  <div class="clear"></div>
+                                </ul>
+                             </div>
+
+                             <div class="timeline-right-content" id="tlc">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="present7" class="present" name="selector7">
+                                        <label for="present7">Present</label> 
+                                        <div class="check"></div>
+                                   </li>
+                                   <li>
+                                        <input type="radio" id="absent7" name="selector7" class="absent">
+                                        <label for="absent7">Absent</label> 
+                                        <div class="check"><div class="inside"></div></div>
+                                   </li>
+                                </ul>
+                                <!--<div class="divider"></div>-->
+                             </div>
+                        </div>
+                             <!--8-->
+                        </div></div>
+
+                        </div>
+                      <div class="submit-1">
+                          <input type="reset" value="Reset" class="reset1">
+                          <input type="submit" value="Submit"class="submit1">
+                      </div>
+                    </div>
+
+                </div>
+             
+
+            </div> 
+           
+      
+              </div>
+        <!-- footer part 
+        <footer>
+            <div class="container">
+                <p>Design and Developed by Walkwel Technology</p>
+            </div>
+        </footer>-->
+
+    <!-- jquery and javascripts -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/modernizr.custom.js"></script>
+    <script>
+        $('input[type="radio"].present').click(function(){
+            var $getParent = $(this).parents('.timeline-right-content').siblings('.timeline-left-content');
+            $getParent.removeClass('stuAbsent');
+            $getParent.addClass('stuPresent');
+        })
+        $('input[type="radio"].absent').click(function(){
+            var $getParent = $(this).parents('.timeline-right-content').siblings('.timeline-left-content');
+            //alert ($getParent);
+            $getParent.removeClass('stuPresent');
+            $getParent.addClass('stuAbsent');
+        })
+    </script>
+    <script>
+     $('#all-present > a').click(function(e){
+      e.preventDefault();
+           $('.timeline-left-content').addClass('stuPresent');
+           $('.timeline-left-content').removeClass('stuAbsent');
+           $('.present').prop('checked', true);
+        })  
+        
+
+      $('#all-absent > a').click(function(e){
+        e.preventDefault();
+          $('.timeline-left-content').addClass('stuAbsent');
+         $('.timeline-left-content').removeClass('stuPresent');
+         $('.absent').prop('checked', true);
+     })
+
+    </script>
+
+    <!--   Bootstrap javascript -->
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+        // byspecifieddate
+        $('.datepicker-range').datepicker({
+            format: "dd/mm/yyyy",
+            autoclose: true,
+        }).on('changeDate', function(ev) {
+            $(this).datepicker('hide');
+        });;
+
+        // timeline datepicker
+        $('#specified-date-link').click(function() {
+            $('#specified-date').slideDown();
+            $('#date-range').slideUp();
+        });
+        // timeline date rangepicker
+        $('#date-range-link').click(function() {
+            $('#date-range').slideDown();
+            $('#specified-date').slideUp();
+        });
+
+        // For loading Content
+        function hideLoading() {
+            $('#loading').hide();
+        }
+        setTimeout(
+            function() {
+                hideLoading();
+                $('.content-box').removeClass('pre-load');
+            }, 1000
+        );
+
+        // date range - check in & check out
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+        var checkin = $('#dpd-checkin').datepicker({
+            onRender: function(date) {
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function(ev) {
+            if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.setValue(newDate);
+            }
+            checkin.hide();
+
+            $('#dpd-checkout')[0].focus();
+        }).data('datepicker');
+
+        var checkout = $('#dpd-checkout').datepicker({
+            onRender: function(date) {
+                return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function(ev) {
+            checkout.hide();
+        }).data('datepicker');
+    </script>
+
+</body>
+
+</html>

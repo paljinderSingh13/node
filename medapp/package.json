@@ -1,0 +1,23 @@
+{
+  "name": "contactlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^2.0.0-rc.5",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "file-system": "^2.2.1",
+    "mongodb": "^2.1.11",
+    "mongojs": "^2.3.0",
+    "mongoose": "^4.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

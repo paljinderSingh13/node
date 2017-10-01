@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login | UMS</title>
+
+    <!-- bootstrap elements css -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+
+    <!-- font awesome css -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <!-- google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Asap:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-login">
+
+    <div class="content-box">
+        <div class="form">
+            <div class="thumbnail">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" /></div>
+
+            <form action="abc.html" class="forgot-password-form">
+                <div class="alert alert-success">
+                    <strong>Successfully!</strong>
+                    <br/>Please check your email
+                    <img alt="" src="images/icons/success-icon-green.png" class="success-icon">
+                </div>
+                <input type="text" placeholder="Enter your email address" />
+                <button>Reset Password</button>
+                <p class="message"><a href="#">Back to Login</a></p>
+            </form>
+            <form class="login-form">
+                <input type="text" placeholder="Username / Email" />
+                <input type="password" placeholder="Password" />
+                <button type="button" onclick="window.location.href='dashboard.html'">Login</button>
+                <p class="message">Forgot your password? <a href="#">Reset Password</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- jquery and javascripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        // toggle form scripts
+        $('.message a').click(function() {
+            $('form').animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
+
+</body>
+
+</html>

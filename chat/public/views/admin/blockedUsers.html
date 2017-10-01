@@ -1,0 +1,19 @@
+<div ng-include="'views/master/header.html'"></div>
+Total Online users : {{rooms.length * 2}} <br>
+Banned users : 0 <br>
+<button class="btn btn-default" data-ng-click="getScreenshots()">Refresh</button>
+<button class="btn btn-default" ui-sref="admin">Screening</button>
+<div class="container">
+  <div class="row">
+  </div>
+  <ul>
+    <li ng-repeat="bu in blockedUsersList">
+      <table class="bordered">
+        <tr>
+          <td>{{bu.ip}}</td>
+          <td>{{bu.time}}</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+</div>

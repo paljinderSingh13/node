@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Department | UMS</title>
+    <!-- datatable css -->
+    <link rel="stylesheet" href="../../assets/css/jquery.dataTables.min.css">
+    <link href="../../assets/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
+
+    <!-- bootstrap elements css -->
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+
+    <!-- google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Asap:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- custom css -->
+    <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <!--  loading icon -->
+    <div id="loading">
+        <p><img src="../../assets/images/loader.gif" alt="Loading..." />
+            <br/> Loading...
+        </p>
+    </div>
+
+    <div class="main-wrapper">
+
+        <!--  header part -->
+        <header class="header-1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="logo">
+                            <a href="#"><img src="../../assets/images/logo.png" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 pull-right">
+
+                        <!-- user logut session -->
+                        <div class="user-logout pull-right">
+                            <figure>
+                                <img src="../../assets/images/billy.png">
+                            </figure>
+                            <p>Welcome,
+                                <br><span>Billy Larson</span></p>
+                            <a href="#" class="logout"></a>
+                        </div>
+
+                        <!-- icons panel -->
+                        <div class="icons-panel pull-right">
+                            <ul>
+<!--                                 <li>
+                                    <a href="#">
+                                        <span class="notification">2</span>
+                                        <img src="../../assets/images/icons/notification.png" alt="" />
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <a href="#">
+                                        <img src="../../assets/images/icons/setting.png" alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- user role -->
+                        <div class="role-user pull-right">
+                            <p> administrative</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- navigation part -->
+        <div class="navigation">
+            <div class="container">
+                <div class="heading-link">
+                    <ol class="breadcrumb" style="margin-bottom: 5px;">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Department</a></li>
+                    </ol>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="with-nav">Departments</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="brand-btn medium fill pull-right" href="../../dashboard.html">
+                              go to main dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <nav class="navbar navbar-brand">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="index.html">dashboard</a></li>
+                        <li class="dropdown active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="departments.html">Departments</a></li>
+                                <li><a href="course.html">Courses</a></li>
+                                <li><a href="staff.html">Staff</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lecture
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="lecture-upload.html">Lecture Upload</a></li>
+                                <li><a href="lecture-adjustment.html">Adjustment</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="timetable.html">Timetable</a></li>
+                        <li><a href="attendence-listing.html">Attendance</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Class Test
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="schedule-test.html">Schedule Test</a></li>
+                                <li><a href="marks-upload.html">Test Results</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="user-activity.html"><span class="notification-menu">2</span>User Activity</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- data table listing -->
+        <div class="data-table content-box pre-load">
+            <div class="container" style="position:relative;">
+
+                <a data-toggle="modal" href="#modal-id" aria-expanded="false" aria-haspopup="true">
+                    <div class="floatingContainer">
+                        <div class="actionButton">
+                            <p class="floatingText"><span class="floatingTextBG">Add Department</span></p>
+                        </div>
+                    </div>
+                </a>                
+
+                <table id="example" class="display" cellspacing="0" width="100%">
+          <thead>
+              <tr>
+                  <th>Department Name</th>
+                  <th style="text-align:center;">Courses</th>
+                  <th style="text-align:center;">Staff Members</th>
+                  <th>Created By</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>
+                    <p>PG Department of CS & IT</p>
+                  </td>
+                  
+                    <td class="stoppage">
+                    <a href="course.html" data-toggle="tooltip" data-html="true" title="">61</a>                  
+                  </td>
+                    <td class="stoppage">
+                    <a href="staff.html" data-toggle="tooltip" data-html="true" title="">61</a>                  
+                  </td>
+                  <td class="user-details two-lines">
+                                
+                        <div class="mutliple-lines pull-left">
+                            <p>Manoj Tawari</p>
+                            <p><strong>Created on</strong> - 12/02/2016</p>
+                        </div>
+                    </td>
+                  <td>
+                    <label class="label label-success">Enabled</label>
+                  </td>                  
+                  <td>
+                       <ul class="action-icon">
+                         <li><a href="" class="edit-icon">edit</a></li>
+                         <li><a href="" class="view-icon">view</a></li>
+                         <li><a href="" class="delete-icon">delete</a></li>
+                       </ul>  
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <p>PG Department of Chemistry</p>
+                  </td>
+                  
+                    <td class="stoppage">
+                    <a href="course.html" data-toggle="tooltip" data-html="true" title="">61</a>                  
+                  </td>
+                    <td class="stoppage">
+                    <a href="staff.html" data-toggle="tooltip" data-html="true" title="">35</a>
+                  
+                  </td>
+                  <td class="user-details two-lines">                                
+                        <div class="mutliple-lines pull-left">
+                            <p>Manoj Tawari</p>
+                            <p><strong>Created on</strong> - 12/02/2016</p>
+                        </div>
+                    </td>
+                  <td>
+                    <label class="label label-danger">Disabled</label>
+                  </td>
+                  
+                  <td>
+                       <ul class="action-icon">
+                         <li><a href="" class="edit-icon">edit</a></li>
+                         <li><a href="" class="view-icon">view</a></li>
+                         <li><a href="" class="delete-icon">delete</a></li>
+                       </ul>  
+                  </td>
+              </tr>
+          </tbody>
+         </table> 
+            </div>
+        </div>
+
+        <!-- footer part -->
+        <footer>
+            <div class="container">
+                <p>Design and Developed by Walkwel Technology</p>
+            </div>
+        </footer>
+        
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"> <i class="fa fa-plus"></i> Add New Department</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                          <div class="brand-input">
+                             <label for="">Department Name</label>    
+                             <input type="text" class="form-control" name="" id="" placeholder="Enter the value">
+                             <span></span>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="brand-input">
+                             <label for="">Description</label>    
+                             <textarea class="form-control" name="" id="" rows="5" placeholder="Enter Description"></textarea>
+                             <span></span>
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="pull-left" for="">Status</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul class="brand-radio pull-left">
+                                        <li>
+                                            <input type="radio" name="admission-type" id="option-1">
+                                            <label for="option-1">Enabled</label>
+                                            <div class="check"></div>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="admission-type" id="option-2">
+                                            <label for="option-2">Disabled</label>
+                                            <div class="check"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default btn-submit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="syllabus-upload">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"> <i class="fa fa-plus"></i> Add Syllabus</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                          <div class="brand-input">
+                             <label for="">Department Name</label>    
+                             <input type="text" class="form-control" name="" id="" placeholder="Enter the value">
+                             <span></span>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="brand-input">
+                             <label for="">Description</label>    
+                             <textarea class="form-control" name="" id="" rows="5" placeholder="Enter Description"></textarea>
+                          </div>
+                        </div>
+                        
+                        <div class="upload-file">
+          <input type="file" class="inputfile inputfile-file" id="file-2" name="file-7">
+          <label for="file-2"><span></span> <strong><img alt="" style="margin-right: 5px;" src="../../assets/images/icons/upload.png"> Upload File…</strong></label>
+        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default btn-submit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- jquery javascript -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/modernizr.custom.js"></script>
+
+    <!--   Bootstrap javascript -->
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/bootstrap-select.js"></script>
+
+    <!--   Datatable javascript -->
+    <script src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/dataTables.buttons.min.js"></script>
+    <script src="../../assets/js/buttons.flash.min.js"></script>
+    <script src="../../assets/js/buttons.print.min.js"></script>
+    <script src="../../assets/js/pdfmake.min.js"></script>
+    <script src="../../assets/js/vfs_fonts.js"></script>
+    <script src="../../assets/js/buttons.html5.min.js"></script>
+
+    <!--   Custom javascript -->
+    <script src="../../assets/js/custom.js"></script>
+
+        <script type="text/javascript">
+       // float action button script
+        $('.floatingContainer').hover(function() {
+        }, function() {
+            $('.subActionButton').removeClass('display');
+            $('.actionButton').removeClass('open');
+        });
+
+        $('.actionButton').hover(function() {
+            $(this).addClass('open');
+            $(this).find('.floatingText').addClass('show');
+            $('.subActionButton').addClass('display');
+        }, function() {
+            $(this).find('.floatingText').removeClass('show');
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<div class="login-wrapper">
+        <a href="#" class="logo-site"><img src="public/assets/imgs/gc-logo.png"></a>
+    <div class="credentials" layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding >
+            <h3>Verify {{details.otp}}</h3>
+            <label>An OTP is sent on registered phone number and in your email also. Please enter the OTP to verify.</label>
+            <form name="otpForm" ng-submit=checkOTP(otpDetails)>
+                <md-input-container class="md-block">
+                <label>OTP</label>
+                <input type="number" required name="otp" ng-model="otpDetails.otp">
+                <div ng-messages="otpForm.otp.$error">
+                  <div ng-message="required">Please enter recieved OTP.</div>
+                </div>
+              </md-input-container>
+                <div layout="row" layout-align="center center">
+                    <md-input-container>
+                      <md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="otpForm.$invalid">Submit</md-button>
+                    </md-input-container>
+                </div>
+                <br>
+            </form>
+      </md-content>
+    </div>
+</div>

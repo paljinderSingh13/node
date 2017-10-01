@@ -1,0 +1,18 @@
+<div class="container-main">
+    <div class="overlay"></div>
+    <!-- SECTION LEFT -->
+   <!--  <div ng-include="'admin/app/views/layout/sidebar.html'"></div> -->
+    <!-- SECTION RIGHT -->
+    <div class="section-right content-middle">
+        <div ng-include="'admin/app/views/layout/header.html'"></div>
+        <div layout="row" layout-align="center">
+            <div flex="90" class="section-right-container" id="section-right-container">
+            
+                <div ui-view></div>
+            
+            <div ng-include="'admin/app/views/layout/footer.html'"></div>
+        </div>
+        </div>
+        
+    </div>
+</div>

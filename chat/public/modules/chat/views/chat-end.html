@@ -1,0 +1,35 @@
+<div class="col-md-12 col-xs-12">
+	<div class="chat__end" >
+		<div class="chat__end__container">
+			<h3><span>{{chatendMsg2}}</span>{{chatendMsg}}</h3>
+			<button class="btn btn-default end-chat" type="button" data-ng-click="newChatStart()">New chat</button>
+			<div class="chat__end--interests" data-ng-if="userInterestsArray.length >= 1">
+				<div class="addintrest__input" match-height ng-class="{'addintrest__input--focus' : interestInputFocus}">
+					<form ng-submit="interestAdded()">
+						<li class="interests" ng-repeat="int in userInterestsArray track by $index">
+							<span class="interests__value">{{int}}</span>
+							<a class="interests__cross" ng-click="removeInterest(int)">x</a>
+						</li>
+						<input ng-focus="interestInputFocus = true" ng-blur="interestInputFocus = false" class="small" type="text" name="fname" ng-model="$parent.interest" placeholder="{{interestText}}">
+					</form> 
+					<div ng-style="style" class="addintrest__input__overlay" ng-show="interestDisabled" ></div>
+				</div>
+				<div class="disable__interests">
+					<form>
+					  <input type="checkbox" data-ng-checked="interestDisabled" ng-click="interestDisabled=!interestDisabled"  name="" value="">Disable interests
+					</form>
+				</div>
+			</div>
+			<div class="shareIt__social">
+				<h3>Like this chat? Share it! <a href="javascript:void(0)" ng-click="chatShot()">get link</a></h3>
+				<ul class="chat__end__socialbtn">
+					<li><a href="#" target="_blank"><img src="assets/images/twitter.png"></a></li>
+					<li><a href="#" target="_blank"><img src="assets/images/facebook_icon.png"></a></li>
+					<li><a href="#" target="_blank"><img src="assets/images/pintrest_icon.png"></a></li>
+					<li><a href="#" target="_blank"><img src="assets/images/dribble_icon.png"></a></li>
+					<li><a href="#" target="_blank"><img src="assets/images/twitter_icon.png"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div> 

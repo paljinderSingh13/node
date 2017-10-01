@@ -1,0 +1,75 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Institute / {{ group.name }} </h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<form name="form" ng-submit=approve(formDetails)>
+				<div layout="row">
+					<div flex>
+						<h3>
+							<md-icon>
+				    			<a href="javascript:void(0);" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+				    		</md-icon>
+				    		&nbsp;{{ group.name }}
+				    	</h3>
+					</div>	
+				</div>
+				<div layout="row">
+					<div flex>
+						<p>Address</p>
+						<span>{{ group.address }}</span>
+					</div>
+				</div>
+				<br>
+				<div layout="row">
+					<div flex>
+						<p>Created By</p>
+						<span>{{ group.createdUser.fullname }}</span>
+					</div>			
+					<div flex>
+						<p>Email</p>
+						<span>{{ group.createdUser.email }}</span>
+					</div>
+					<div flex>
+						<p>Email</p>
+						<span>{{ group.createdUser.phone }}</span>
+					</div>
+				</div>
+				<br>
+				<div layout="row">
+					<div flex>
+						<p>Created Date</p>
+						<span>{{ group.createdDate | date : 'dd-MM-yyyy' }}</span>
+					</div>
+				</div>
+				<br>
+				<div layout="row">
+					<div flex>
+						<md-input-container class="md-block" ng-if="!group.isApproved">
+							<label>Remarks</label>
+							<textarea required ng-model="formDetails.remarks" name="remarks" rows="5" md-select-on-focus></textarea>
+							<div ng-messages="form.remarks.$error">
+								<div ng-message="required">Please enter your remarks</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div>
+				<div ng-if="!group.isApproved" layout="row" layout-align="center center">
+					<md-button type="submit" class="md-raised md-primary" ng-disabled="form.$invalid" aria-label="description" md-ripple-size="full">
+						<i class="icon_eye"></i>&nbsp;&nbsp;Approve Institute
+					</md-button>
+				</div>
+			</form>
+		</md-content>
+	</div>
+</div>

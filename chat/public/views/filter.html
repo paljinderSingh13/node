@@ -1,0 +1,58 @@
+	<div ng-include="'views/master/header.html'" ></div>
+	<div class="mainContent" filters-height>
+	<section ng-style="style">
+		<div class="select-chat-filter-head">
+			<h3>Select chat filter</h3>
+		</div>
+		<div class="">
+			<div class="container">
+				<!-- <p>{{msg.message}}</p> -->
+				<div class="select-chat-filter">
+					<div class="select-chat-container"> 
+						<a ui-sref=".world" ui-sref-active="active" ng-click="makeActive()"  >
+							<div class="select-chat-container-block select-chat-container-left">
+									<div class="blue-icon">
+									<img src="assets/images/filters-icon.png">
+									</div>
+									<h2 class="blue">World</h2>
+							</div>
+						</a>
+						<a ui-sref=".country" ui-sref-active="active" ng-click="makeActive()">
+							<div ng-class="class" class="select-chat-container-block select-chat-container-middle">
+							
+								<div class="blue-icon">
+									<img src="assets/images/filters-icon.png">
+									</div>									
+									<h2 class="blue">Country</h2>	
+							</div>
+						</a>
+						<a ui-sref=".nearby" ui-sref-active="active" ng-click="makeActive()">
+							<div ng-class="class" class="select-chat-container-block select-chat-container-right">							
+								<div class="blue-icon">
+									<img src="assets/images/filters-icon.png">
+									</div>							
+							<h2 class="blue">Nearby</h2>
+							</div>
+						</a>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ui-view ></div>
+			
+		<div class="section-4th">
+			<div class="container">
+				<div class="section-4th-container ">
+					<p class="chat-video">By clicking "start text chat" or "start video chat" you agree to KosmoChat's</p>
+					<p class="chatting-only">By clicking "start chatting" you agree to KosmoChat's</p>
+					<p><a ui-sref="privacy">Privacy Policy</a> and <a ui-sref="terms">Terms of Use.</a></p>
+				</div>
+			</div>
+		</div>
+	</section>	
+	<div>
+	<div ng-include="'views/master/footer.html'" ></div>
+
+
+

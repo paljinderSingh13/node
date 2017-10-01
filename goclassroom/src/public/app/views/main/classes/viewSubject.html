@@ -1,0 +1,87 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Class / {{ subject.name }} </h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="classes.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all classes
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<div layout="row">
+				<div flex>
+					<h3>
+						<md-icon>
+			    			<a href="javascript:void();" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+			    		</md-icon>
+			    		&nbsp;{{ subject.name }}</h3>
+					
+				</div>
+				<div flex ng-if="user._id == subject.createdUser._id || user.role == 1">
+					<md-button class="md-fab md-warn float-right" ng-click="delete(subject._id)">
+			    		<md-icon>
+			    			<i class="material-icons">delete</i>
+			    		</md-icon>
+			    	</md-button>
+			    	<md-button class="md-fab md-warn float-right" ng-click="getData(subject._id, 'edit')">
+			    		<md-icon>
+			    			<i class="material-icons">edit</i>
+			    		</md-icon>
+			    	</md-button>
+				</div>	
+			</div>
+			<div layout="row">
+				<div flex>
+					<p>Class ID</p>
+					<span>{{ subject.subid }}</span>
+				</div>			
+				<div flex>
+					<p>{{ label }}</p>
+					<span>{{ subject.groupId.name }}</span>
+				</div>
+				<div flex>
+					<p>Created By</p>
+					<span>{{ subject.createdUser.fullname }}</span>
+				</div>
+				
+			</div>
+			<br>
+			<div layout="row">
+				<div flex>
+					<p>Fee Details</p>
+					<span ng-if="subject.isFree">It is free</span>
+					<span ng-if="!subject.isFree">{{ subject.fees }}</span>
+				</div>			
+				<div flex>
+					<p>Duration</p>
+					<span>{{ subject.duration.dvalue }}&nbsp;{{ subject.duration.dtype }}</span>
+				</div>
+				<div flex>
+					<p>Created Date</p>
+					<span>{{ subject.createdDate | date : 'dd-MM-yyyy' }}</span>
+				</div>
+			</div>
+			<br>
+			<div layout="row">
+				<div flex="50">
+					<p>Weekdays</p>
+					<span ng-repeat="weekday in subject.weekdays">{{ weekday }}&nbsp;</span>
+				</div>
+			</div>
+			<br>
+			<div layout="row">
+				<div flex>
+					<p>Description</p>
+					<span>{{ subject.description }}</span>
+				</div>
+			</div>
+		</md-content>
+	</div>
+</div>

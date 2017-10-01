@@ -1,0 +1,57 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Update {{ label }}</h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="groups.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all {{ label }}
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<p>
+				<md-icon>
+			    	<a href="javascript:void();" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+			    </md-icon>&nbsp;
+			    Please enter {{ label }} details.
+			</p> 
+			<br>
+			<form name="form" ng-submit=update(formDetails)>
+				<md-input-container class="md-block">
+					<label>{{ label }} Name</label>
+					<input required name="name" ng-model="formDetails.name">
+					<div ng-messages="form.name.$error">
+						<div ng-message="required">Please enter {{ label }} name.</div>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Unique Public ID ( http://www.goclassrooms.com/{{formDetails.unid}} )</label>
+					<input disabled name="unid" value="{{group.unid}}">
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Address</label>
+					<input name="address" required ng-model="formDetails.address">
+					<div ng-messages="form.address.$error">
+						<div ng-message="required">Please enter {{ label }} address.</div>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>About (optionl)</label>
+					<input name="about" ng-model="formDetails.about">
+				</md-input-container>
+				<input type="hidden" ng-model="formDetails.group._id">
+				<div layout="row" layout-align="center center">
+					<md-input-container>
+						<md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="form.$invalid">Update {{ label }}</md-button>
+					</md-input-container>
+				</div>
+			</form>
+		</md-content>
+	</div>
+</div>

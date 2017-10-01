@@ -1,0 +1,121 @@
+<div class="login-wrapper">
+        <a href="#" class="logo-site"><img src="public/assets/imgs/gc-logo.png"></a>
+    <div class="credentials" layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <h3>Create an account</h3>
+            <label>Enter your details to create an account</label>
+            <form name="regisrterForm" ng-submit=register(userDetails)>
+              <md-input-container class="md-block">
+                <label>Fullname</label>
+                <input required name="fullname" ng-model="userDetails.fullname">
+                <div ng-messages="regisrterForm.fullname.$error">
+                  <div ng-message="required">Please enter your name.</div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <label>Email</label>
+                <input required name="email" ng-model="userDetails.email" ng-pattern="/^.+@.+\..+$/">
+                <div ng-messages="regisrterForm.email.$error">
+                  <div ng-message="required">Please enter your email.</div>
+                  <div ng-message="pattern">Please enter valid email address.</div>
+                </div>
+              </md-input-container>
+              <md-card-content>
+                <div layout="row">
+                  <md-input-container>
+                    <label>Country</label>
+                    <md-select ng-model="userDetails.country_code"
+                    data-md-container-class="advance-select"> 
+                       <md-select-header class="select-header">
+                        <input ng-model="searchCC"
+                               type="search"
+                               placeholder="Search"
+                               class="header-searchbox md-text">
+                      </md-select-header>
+                      <md-option ng-repeat="country in countries | filter : searchCC" ng-value="country" ng-selected="$index === selectedCountry">
+                        ({{country.code}}) {{country["dial_code"]}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                  <md-input-container class="md-block" flex="100">
+                    <label>Phone Number</label>
+                    <input name="phone" required ng-model="userDetails.phone" md-minlength="10" md-maxlength="10" ng-pattern="/^[0-9]{10}$/" >
+                    <div ng-messages="regisrterForm.phone.$error">
+                        <div ng-message="required">Please enter your phone number.</div>
+                        <div ng-message="minlength">Please enter valid 10 digit phone number</div>
+                        <div ng-message="maxlength">Please enter valid 10 digit phone number</div>
+                        <div ng-message="pattern">Please enter digits only</div>
+                    </div>
+                  </md-input-container>
+                </div>
+              </md-card-content>
+              <md-card-content>
+                  <am-date-picker ng-model="userDetails.dob"
+                                  am-input-date-format="L"
+                                  am-input-label="Date of Birth *"
+                                  am-max-date="maxDate"
+                                  am-max-year="2015"
+                                  am-min-date="minDate"
+                                  am-min-year="2000"
+                                  am-popup-date-format="D MMMM"
+                                  am-cancel-button="Cancel"
+                                  am-show-input-icon="true"
+                                  name="dateField"
+                                  required>
+                  </am-date-picker>
+                  <div ng-messages="regisrterForm.dateField.$error" class="validation-messages" ng-show="touched">
+                    <div ng-message="required">The date is required </div>
+                    <div ng-message="minDate">Date is too early!</div>
+                    <div ng-message="maxDate">Date is too late!</div>
+                    <div ng-message="valid">The entered value is not a date!</div>
+                  </div>
+              </md-card-content>
+              <div layout="row" >
+                <md-input-container>
+                  <label>Register as</label><br><br>
+                  <md-radio-group layout="row" required name="role" ng-model="userDetails.role">
+                    <md-radio-button value="1" class="md-primary">I am Institute Owner</md-radio-button>
+                  </md-radio-group>
+                  <md-radio-group layout="row" required name="role" ng-model="userDetails.role">
+                    <md-radio-button value="2" class="md-primary">I am a Private Tutor</md-radio-button>
+                  </md-radio-group> 
+                  <md-radio-group layout="row" required name="role" ng-model="userDetails.role">
+                    <md-radio-button value="3" class="md-primary">I am a Teacher </md-radio-button>
+                  </md-radio-group>
+                  <md-radio-group layout="row" required name="role" ng-model="userDetails.role">
+                    <md-radio-button value="4" class="md-primary">I am a Student</md-radio-button>
+                  </md-radio-group>
+                  <div class="validation-messages" ng-messages="regisrterForm.role.$error">
+                    <div ng-message="required">Please select your appropate role.</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <br>  
+              <div ng-if="userDetails.role == 1 || userDetails.role == 2">
+                <md-input-container class="md-block">
+                  <label>Institute Name</label>
+                  <input required name="insname" ng-model="userDetails.insname">
+                  <div ng-messages="regisrterForm.insname.$error">
+                    <div ng-message="required">Please enter institute name.</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label>Institute Address</label>
+                  <textarea required name="insaddress" ng-model="userDetails.insaddress" rows="5" md-select-on-focus></textarea>
+                  <div ng-messages="regisrterForm.insaddress.$error">
+                    <div ng-message="required">Please enter institute name.</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <div layout="row" layout-align="center center">
+                <md-input-container>
+                  <md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="regisrterForm.$invalid">Submit</md-button>
+                </md-input-container>
+              </div>
+              <div layout="row" layout-align="center center">
+                <p>Already registered? <a ui-sref="/">Login Here</a> </p>
+              </div>
+            </form>
+      </md-content>
+    </div>
+</div>

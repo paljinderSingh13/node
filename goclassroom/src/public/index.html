@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html data-ng-app="goclassrooms">
+    <!-- <base href="/"> -->
+    <head>
+        <title>GoClassrooms</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!--Import Google Icon Font-->
+
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+        <!--Material Css-->
+       	<link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
+        <!-- <link rel="stylesheet" href="public/lib/materialize/dist/css/materialize.min.css"> -->
+        <link rel="stylesheet" type="text/css" href="lib/angular-material-data-table/dist/md-data-table.min.css">
+
+        <!--Custom Css-->
+        <link type="text/css" rel="stylesheet" href="public/assets/css/style.css" media="screen,projection" />
+
+
+        <!-- loading bar -->
+        <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+
+       
+
+        <!-- chat dependencies -->
+        <link type="text/css" rel="stylesheet" href="public/chat/assets/css/suraj.css" />
+        <link type="text/css" rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.min.css" />
+        <link type="text/css" rel="stylesheet" href="public/chat/assets/emoji/emoji.css"/>
+        <link type="text/css" rel="stylesheet" href="lib/angular-material-date-picker/dist/am-date-picker.min.css"/>
+
+    </head>
+
+    <body class="login-screen">
+        <div id="loading-bar-container"></div>
+        <ui-view></ui-view>
+   
+        <!-- Scripts-->
+        <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src='lib/angular-ui-router/release/angular-ui-router.min.js'></script>
+        <script type="text/javascript" src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+
+        <!--  -->
+        <script src="lib/angular-animate/angular-animate.min.js"></script>
+        <script src="lib/angular-aria/angular-aria.min.js"></script>
+        <script src="lib/angular-messages/angular-messages.min.js"></script>
+
+        <script src="lib/angular-loading-bar/build/loading-bar.min.js"></script>
+        
+
+        <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+
+
+         <!-- Angular Material Library -->
+        <script src="lib/angular-material/angular-material.min.js"></script>
+        <script src="lib/angular-material-data-table/dist/md-data-table.min.js"></script>
+        
+        
+        <!-- customs-->
+        <script src="public/app/app.js"></script>
+        <script src="public/app/routes/baseRoutes.js"></script>
+        <script src="public/app/routes/mainRoutes.js"></script>
+        <script src="public/app/services/commonServices.js"></script>
+        <script src="public/app/services/mainServices.js"></script>
+        <script src="public/app/services/filters.js"></script>
+        <script src="public/app/controllers/baseCtrl.js"></script>
+        <script src="public/app/controllers/mainCtrl.js"></script>
+
+        <!-- chat module dependencies -->
+        <script src="public/chat/chat.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="lib/angular-socket-io/socket.js"></script>
+        <script src="lib/ng-dialog/js/ngDialog.min.js"></script>
+        <script src="lib/ng-file-upload/ng-file-upload.min.js"></script>
+        <script src="lib/ng-file-upload/ng-file-upload-shim.min.js"></script>
+        <script src="lib/angular-nicescroll/demo/app/vendor/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="lib/angular-nicescroll/angular-nicescroll.js"></script>
+        <script src="public/chat/assets/emoji/emoji.min.js"></script>
+        <script src="public/chat/assets/emoji/emoji-bundle.js"></script>
+        <script src="public/chat/controller/chat-controller.js"></script>
+        <script src="public/chat/services/chat-factory.js"></script>
+        <script src="lib/moment/min/moment.min.js"></script>
+        <script src="lib/angular-material-date-picker/dist/am-date-picker.min.js"></script>
+    
+    </body>
+</html>

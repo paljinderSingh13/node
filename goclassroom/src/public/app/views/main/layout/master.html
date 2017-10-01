@@ -1,0 +1,16 @@
+<div class="container-main">
+    <div class="overlay"></div>
+    <!-- SECTION LEFT -->
+    <div ng-include="'public/app/views/main/layout/sidebar.html'"></div>
+    <!-- SECTION RIGHT -->
+    <div class="section-right content-middle">
+        <div ng-include="'public/app/views/main/layout/header.html'"></div>
+        <div class="section-right-container" id="section-right-container">
+            <div style="padding-top : 50px">
+                <div ui-view></div>
+                <div ui-view="chat"></div> 
+            </div>
+            <div ng-include="'public/app/views/main/layout/footer.html'"></div>
+        </div>
+    </div>
+</div>

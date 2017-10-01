@@ -1,0 +1,30 @@
+
+
+
+			<div class="video__chat__section">
+				
+				<div class="video__chat__sec__container">
+					<div class="video__you__section">
+						<div class="video__you__heading">
+							<h3>Partner</h3>
+						</div>
+						<div class="video__you__image">
+							<div class="video-player" >
+							<video-player ng-repeat="peer in peers" vid-src="{{peer.stream}}"></video-player>
+							</div>
+						</div>
+					</div>		
+					<div class="video__you__section">
+						<div class="video__you__heading">
+							<h3>You</h3>
+						</div>
+						<div class="video__you__image">
+							<span ng-show="error" ng-bind="error"></span>
+							<video ng-hide="" ng-src="{{getLocalVideo()}}" autoplay muted></video>
+						</div>
+					</div>
+					
+				</div>
+			</div>  
+
+

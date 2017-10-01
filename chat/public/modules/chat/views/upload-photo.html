@@ -1,0 +1,41 @@
+<div class="take__photo">
+	<div class="take__photo__container clear">
+		<div class="take__photo__container-left">
+			<div class="timer__countdown">
+				<ul class="timer__countdown-list">
+					<li ng-click="phototiming = 10">10</li>
+					<li ng-click="phototiming = 9">9</li>
+					<li ng-click="phototiming = 8">8</li>
+					<li ng-click="phototiming = 7">7</li>
+					<li ng-click="phototiming = 6">6</li>
+					<li ng-click="phototiming = 5">5</li>
+					<li ng-click="phototiming = 4">4</li>
+					<li ng-click="phototiming = 3">3</li>
+					<li ng-click="phototiming = 2">2</li>
+					<li ng-click="phototiming = 1">1</li>
+				</ul>
+			</div>
+			<div class="timer__countdown__watch">
+				<img src="assets/images/timer-clock.png">
+				<span>{{phototiming}}s</span>
+				<input type="text" ng-model="phototiming"  hidden>
+			</div>
+		</div>
+		<div class="take__photo__container-right">
+			<div class="take__photo__image__container">
+				<!-- <img src="assets/images/kosmo-image.png"> -->
+				<!-- <span class="helper"></span> -->
+      			<img ng-show="myForm.file.$valid" ngf-thumbnail="imgFile" class="preview-upload"> 
+			</div>
+			<div class="take__photo__image__button">
+				<button class="btn btn-blue photo-button" type="drop" ngf-select ng-model="imgFile" name="file" accept="image/*" ngf-max-size="2MB" required
+             ngf-model-invalid="errorFile" class="fileUpload" ng-hide="picFile" ng-click="picFile != null" ng-hide="picFile">Select a file</button>
+			      <i ng-show="myForm.file.$error.required">*required</i><br>
+			      <i ng-show="myForm.file.$error.maxSize">File too large 
+			          {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+				<button ng-click="picFile = false" ng-show="picFile"  class="btn btn-green photo-button">Reselect Photo</button>
+				<button ng-click="uploadFile()" ng-show="picFile" class="btn btn-blue photo-button">Send Photo</button>
+			</div>
+		</div>	
+	</div>
+</div>

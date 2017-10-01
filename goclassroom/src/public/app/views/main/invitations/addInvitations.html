@@ -1,0 +1,98 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Add Invitations</h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="invitations.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all invitations
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<p>Please enter the details of whom you wish to invite.</p> <br>
+			<small>If the person accepts your invitation, he/she will automatically become a member of selected group/institute</small>
+			<form name="form" ng-submit=save(formDetails)>
+				<md-input-container class="md-block">
+					<label>Fullname</label>
+					<input required name="fullname" ng-model="formDetails.fullname">
+					<div ng-messages="form.fullname.$error">
+						<div ng-message="required">Please enter your name.</div>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Email</label>
+					<input required name="email" ng-model="formDetails.email" ng-pattern="/^.+@.+\..+$/">
+					<div ng-messages="form.email.$error">
+						<div ng-message="required">Please enter your email.</div>
+						<div ng-message="pattern">Please enter valid email address.</div>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Phone Number</label>
+					<input name="phone" required ng-model="formDetails.phone" md-minlength="10" md-maxlength="10" ng-pattern="/^[0-9]{10}$/" >
+					<div ng-messages="form.phone.$error">
+						<div ng-message="required">Please enter your phone number.</div>
+						<div ng-message="minlength">Please enter valid 10 digit phone number</div>
+						<div ng-message="maxlength">Please enter valid 10 digit phone number</div>
+						<div ng-message="pattern">Please enter digits only</div>
+					</div>
+				</md-input-container>
+				<md-input-container>
+					<label>Invite as</label><br><br>
+					<md-radio-group layout="row" required name="role" ng-model="formDetails.role">
+						<md-radio-button value="1" class="md-primary" ng-hide="user.role == 1" >Institute Owner</md-radio-button>
+						<md-radio-button value="2" class="md-primary">Teacher </md-radio-button>
+						<md-radio-button value="3" class="md-primary">Student</md-radio-button>
+					</md-radio-group>
+					<div class="validation-messages" ng-messages="form.role.$error">
+						<div ng-message="required">Please select your appropate role.</div>
+					</div>
+				</md-input-container>
+				<div layout="row" layout-xs="column">
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Select Group/Institute</label>
+							<md-select ng-model="formDetails.groupId" name="groupId" required> 
+							  <md-select-label>Select Group/Institute</md-select-label>
+							  <md-option ng-value="">None</md-option>
+							  <md-option ng-value="g.groupId._id" ng-repeat="g in groupsubjects | unique:'groupId'">{{g.groupId.name}}</md-option>
+							</md-select>
+							<div ng-messages="form.groupId.$error">
+								<div ng-message="required">Please select a group.</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Select Subject</label>
+							<md-select ng-model="formDetails.subjectId" name="subjectId" required> 
+							  <md-select-label>Select Subject</md-select-label>
+							  <md-option ng-value="">None</md-option>
+							  <md-option ng-value="s._id" ng-repeat="s in groupsubjects | filter : formDetails.groupId" ng-if="formDetails.groupId">{{ s.name }}</md-option>
+							</md-select>
+							<div ng-messages="form.subjectId.$error">
+								<div ng-message="required">Please select a subject.</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div>
+				<br>
+				<md-input-container class="md-block">
+					<label>Message (optional)</label>
+					<textarea ng-model="formDetails.message" name="message" rows="5" md-select-on-focus></textarea>
+				</md-input-container>
+				<div layout="row" layout-align="center center">
+					<md-input-container>
+						<md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="form.$invalid">Send Invite</md-button>
+					</md-input-container>
+				</div>
+			</form>
+		</md-content>
+	</div>
+</div>

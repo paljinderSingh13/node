@@ -1,0 +1,59 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Create {{ label }}</h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="groups.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all {{ label }}
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<p>
+				<md-icon>
+			    	<a href="javascript:void();" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+			    </md-icon>
+			    &nbsp;Please enter {{ label }} details.</p> <br>
+			<small>You will be the {{ label }} admin once created and can invite others to this {{ label }}</small>
+			<form name="form" ng-submit=save(formDetails)>
+				<md-input-container class="md-block">
+					<label>{{ label }} Name</label>
+					<input required name="name" ng-model="formDetails.name">
+					<div ng-messages="form.name.$error">
+						<div ng-message="required">Please enter {{ label }} name.</div>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Unique Public ID ( http://www.goclassrooms.com/{{formDetails.unid}} )</label>
+					<input required name="unid" ng-model="formDetails.unid" ng-blur=isGroupAvailable(formDetails.unid) ng-pattern="/^[a-zA-Z0-9]*$/">
+					<div ng-messages="form.unid.$error">
+						<div ng-message="required">You cannot process without unique ID</div>
+						<div ng-message="pattern">Please use alphabets and numbers. No space or special characters allowed.</div>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Address</label>
+					<input name="address" required ng-model="formDetails.address">
+					<div ng-messages="form.address.$error">
+						<div ng-message="required">Please enter {{ label }} address.</div>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>About (optionl)</label>
+					<input name="about" ng-model="formDetails.about">
+				</md-input-container>
+				<div layout="row" layout-align="center center">
+					<md-input-container>
+						<md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="form.$invalid">Create {{ label }}</md-button>
+					</md-input-container>
+				</div>
+			</form>
+		</md-content>
+	</div>
+</div>

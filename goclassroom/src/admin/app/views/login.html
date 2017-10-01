@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+        <a href="#" class="logo-site"><img src="admin/assets/imgs/gc-logo.png"></a>
+    <div class="credentials" layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+        <h3>Login</h3>
+        <label>Enter your details to login</label>
+        <form name="loginForm" ng-submit=doLogin(formDetails)>
+          <md-input-container class="md-block">
+              <label>Username</label>
+              <input name="username" required ng-model="formDetails.username" >
+              <div ng-messages="loginForm.username.$error">
+                  <div ng-message="required">Please enter your username</div>
+              </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Password</label>
+            <input required name="password" type="password" ng-model="formDetails.password">
+            <div ng-messages="loginForm.password.$error">
+              <div ng-message="required">You cannot login without password.</div>
+            </div>
+          </md-input-container>
+          <div layout="row" layout-align="center center">
+            <md-input-container>
+              <md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="loginForm.$invalid">Submit</md-button>
+            </md-input-container>
+          </div>
+          <br>
+        </form>
+      </md-content>
+    </div>
+</div>

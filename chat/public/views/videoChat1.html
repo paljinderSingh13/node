@@ -1,0 +1,411 @@
+<<<<<<< HEAD
+<div class="mainContent">
+	<div class="wrapper-chat">
+		<div class="video__chat__section">
+			<span ng-bind="error"></span>
+			<div class="video__chat__sec__container">
+				<div class="video__partner__section">
+					<div class="video__partner__heading">
+						<h3>Partner</h3>
+					</div>
+					<div class="video__partner__image">
+						<div class="video-player" >
+						<video-player ng-repeat="peer in peers" vid-src="{{peer.stream}}"></video-player>
+						</div>
+					</div>
+					<button ng-click="screenShot()">take photo</button>
+				</div>		
+				<div class="video__you__section">
+					<div class="video__you__heading">
+						<h3>You</h3>
+					</div>
+					<div class="video__you__image">
+						<video ng-src="{{getLocalVideo()}}" autoplay muted id="your_video"></video>
+					</div>
+				</div>
+			</div>
+		</div>  
+		<div class="video__right__container">
+			<div class=" chat-header">
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+					<ul class="video__screen__chat__filter">
+						<li><a class="chat__filter-icon" ng-click="filters()"><img src="assets/images/s-chat-icon.png"></a></li>
+						<li class="video__chat__conect"><div class="disable__interests">
+					<form>
+					  <input type="checkbox" value="" name="">Automatically reconnect
+					</form>
+			</div></li>
+					</ul>	
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<button ng-click="report()" type="button" class="btn btn-default chat-buttons disable report">Report</button>
+					</div>
+				</div>
+			</div>
+			<div class="chat-container video__screen__chat-container">
+			  	<div class="row">
+			  	<div ui-view></div>
+			  	<div ui-view="chatHeads"></div>
+			  	<div ui-view="messages"></div>
+			  	<div ui-view="end"></div>
+			  	</div>
+			</div>
+			<div class="footer-chat video__footer__chat">
+				<div id="photoSharingButton" class="photoSharingButton" ng-class="{'active' : photoSharing}">
+					<p>
+						<button class="btn btn-default chat-buttons" ng-click="sendPhotoSharingRequest()">Send Photo Sharing Request</button>
+						<a ng-click="photoSharing = !photoSharing" class="pull-right">x</a>
+					</p>
+||||||| merged common ancestors
+<div class="mainContent">
+<div class="wrapper-chat">
+<div class="video__chat__section">
+	<span ng-bind="error"></span>
+	<div class="video__chat__sec__container">
+		<div class="video__partner__section">
+			<div class="video__partner__heading">
+				<h3>Partner</h3>
+			</div>
+			<div class="video__partner__image">
+				<div class="video-player" >
+				<video-player ng-repeat="peer in peers" vid-src="{{peer.stream}}"></video-player>
+				</div>
+			</div>
+		</div>		
+		<div class="video__you__section">
+			<div class="video__you__heading">
+				<h3>You</h3>
+			</div>
+			<div class="video__you__image">
+				<video ng-src="{{getLocalVideo()}}" autoplay muted></video>
+			</div>
+		</div>
+		
+	</div>
+</div>   
+	<div class="video__right__container">
+		<div class=" chat-header">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+				<ul class="video__screen__chat__filter">
+					<li><a class="chat__filter-icon" ng-click="filters()"><img src="assets/images/s-chat-icon.png"></a></li>
+					<li class="video__chat__conect">
+						<div class="disable__interests">
+							<form>
+							  <input type="checkbox" value="" name="">Automatically reconnect
+							</form>
+						</div>
+					</li>
+				</ul>	
+=======
+	<div ng-include="'views/master/header.html'" ></div>
+	<div class="mainContent">
+		<div class="wrapper-chat" chat-height>
+			<div class="video__chat__section">
+				
+				<div class="video__chat__sec__container">
+					<div class="video__you__section">
+						<div class="video__you__heading">
+							<h3>Partner</h3>
+						</div>
+						<div class="video__you__image">
+							<div class="video-player" >
+							<video-player ng-repeat="peer in peers" vid-src="{{peer.stream}}"></video-player>
+							</div>
+						</div>
+					</div>		
+					<div class="video__you__section">
+						<div class="video__you__heading">
+							<h3>You</h3>
+						</div>
+						<div class="video__you__image">
+							<span ng-show="error" ng-bind="error"></span>
+							<video ng-hide="" ng-src="{{getLocalVideo()}}" autoplay muted></video>
+						</div>
+					</div>
+					
+>>>>>>> f77efb9000cdac153921546fd88f80b4ef44c01e
+				</div>
+<<<<<<< HEAD
+				<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingSent}">
+					<p>You already sent a photo sharing request. Please wait for chat partner to respond. <a ng-click="photoSharingSent = !photoSharingSent" class="pull-right">x</a></p>
+					
+||||||| merged common ancestors
+				<div class="col-md-6 col-sm-6">
+					<button ng-click="report()" type="button" class="btn btn-default chat-buttons disable report">Report</button>
+=======
+			</div>  
+			<div class="video__right__container">
+				<div class="main-chat-container" ng-style="style">
+					<div class=" chat-header">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+							<ul class="video__screen__chat__filter">
+								<li><a class="chat__filter-icon" ng-click="filters()"><img src="assets/images/s-chat-icon.png"></a></li>
+								<li class="video__chat__conect"><div class="disable__interests">
+							<form>
+							  <input type="checkbox" value="" name="">Automatically reconnect
+							</form>
+						</div>
+						</li>
+							</ul>	
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<button ng-click="report()" type="button" class="btn btn-default chat-buttons disable report">Report</button>
+							</div>
+						</div>
+					</div>
+					<div class="chat-container " ng-style="style">
+						<div class="scroll-body" slimscroll="{height: style.height}">
+						  	<div class="row">
+							  	<div ui-view></div>
+							  	<div ui-view="chatHeads"></div>
+							  	<div ui-view="messages"></div>
+							  	<div ui-view="end"></div>
+						  	</div>
+					  	</div>
+					</div>
+					<div class="footer-chat">
+						<div id="photoSharingButton" class="photoSharingButton" ng-class="{'active' : photoSharing}">
+							<p>
+								<button class="btn btn-default chat-buttons" ng-click="sendPhotoSharingRequest()">Send Photo Sharing Request</button>
+								<a ng-click="photoSharing = !photoSharing" class="pull-right">x</a>
+							</p>
+						</div>
+						<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingSent}">
+							<p>You already sent a photo sharing request. Please wait for chat partner to respond. <a ng-click="photoSharingSent = !photoSharingSent" class="pull-right">x</a></p>
+							
+						</div>
+						<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingRejected}">
+							<p>Chat partner has declined your photo-sharing request <a ng-click="photoSharingRejected = !photoSharingRejected" class="pull-right">x</a></p>
+						</div>
+						<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingOptions}">
+							<div style="text-align:right" class="photoButtons">
+								<a class="photoButton" ng-click="openUploadScreen()">
+								</a>
+								<a ng-click="openCam()" class="photoButton takePhoto" >
+								</a> 
+								<a ng-click="photoSharingOptions = !photoSharingOptions" class="pull-right" style="margin-top: 25px;margin-left: 50px;">x</a>
+							</div>
+						</div>
+						<div class="row">
+					       <div class="col-md-1 mob-res">
+					          <button ng-disabled="!chatConnected" ng-hide="quitAlert" ng-click="quit()" type="button" class="btn btn-default chat-buttons quit">Quit</button>
+					          <button ng-show="quitBtn" ng-click="quitChat()" type="button" class="btn btn-default chat-buttons quit">Sure?</button>
+					          <button ng-show="newChat" ng-click="newChat()" type="button" class="btn btn-default chat-buttons quit newChat">New</button>
+					       </div>
+					       <div class="col-md-11 mob-res">
+					       		<form ng-submit="sendMessage()" ng-disabled="!chatConnected">
+					       		 <div class="chat-mesg">
+					       		   <div class="chat-mesg-left">
+							    	<div class="input-img">
+							          <div class="row">
+							            <div class="col-md-10 col-xs-8 ">
+							              <input ng-disabled="!chatConnected" class="form-control wdt-emoji-bundle-enabled" id="focusedInput" type="text" placeholder="Write a message...(Enter to send)" ng-model="message" />
+							            </div>
+							            <div  class="col-md-2  chat__icons">
+							              <a ng-show="chatConnected"><i class="fa fa-smile-o wdt-emoji-picker" aria-hidden="true"></i></a> 
+							              <a ng-class="{'active' : photoSharingAccepted}" ng-show="chatConnected" ng-click="photoRequestOptions()"><i class="fa fa-camera" aria-hidden="true"></i></a>
+							            </div>
+							            <div ng-hide="true" class="col-md-2  chat__icons">
+							              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+							              <a ng-class="{'active' : photoSharingAccepted}" ng-click="photoSharing = !photoSharing"><i class="fa fa-camera" aria-hidden="true"></i></a>
+							            </div>
+							            <div ng-show="false" class="col-md-2 chat__icons">
+							              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+							              <a ng-class="{'active' : photoSharingAccepted}" ng-click="photoSharingSent = !photoSharingSent"><i class="fa fa-camera" aria-hidden="true"></i></a>
+							            </div>
+							          </div>
+							    	 </div>
+							    	</div>
+							    	<div class="chat-mesg-right clearfix">
+								    	<div class="mob-res">
+								        	<button ng-disabled="!chatConnected" class="btn btn-default chat-buttons send" >Send</button>
+								    	</div>
+							    	</div>
+							    	</div>
+						       </form>
+					       </div>
+						</div>
+					</div>
+>>>>>>> f77efb9000cdac153921546fd88f80b4ef44c01e
+				</div>
+<<<<<<< HEAD
+				<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingRejected}">
+					<p>Chat partner has declined your photo-sharing request <a ng-click="photoSharingRejected = !photoSharingRejected" class="pull-right">x</a></p>
+				</div>
+				<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingOptions}">
+					<p style="text-align:right" class="photoButtons">
+						<a ng-click="" class="photoButton" >
+							<img src="assets/images/camera-photo.png">
+							Take a photo 
+						</a> 
+						<a ng-click="" class="photoButton">
+							<img src="assets/images/upload-photo.png" alt="">
+							Upload Photo
+						</a>
+						<a ng-click="photoSharingOptions = !photoSharingOptions" class="pull-right" style="margin-top: 25px;margin-left: 50px;">x</a>
+					</p>
+				</div>
+				<div class="row">
+			       <div class="col-md-1 col-xs-2 col-sm-1 mob-res">
+			          <button ng-hide="quitAlert" ng-click="quit()" type="button" class="btn btn-default chat-buttons disable quit">Quit</button>
+			          <button ng-show="quitBtn" ng-click="quitChat()" type="button" class="btn btn-default chat-buttons report quit">Sure ?</button>
+			          <button emojiPicker="emojiBtn" ng-show="newChat" ng-click="newChat()" type="button" class="btn btn-default chat-buttons quit emojiBtn">New</button>
+			       </div>
+			       <div class="col-md-11 col-xs-10 col-sm-11 mob-res">
+			       		<form ng-submit="sendMessage()">
+			       		 <div class="chat-mesg">
+			       		   <div class="chat-mesg-left video__mesg__left">
+					    	<div class="input-img">
+					          <div class="row">
+					            <div class="col-md-8 col-xs-8 col-sm-10 ">
+					              <input class="form-control" id="focusedInput" type="text" placeholder="Write a message...(Enter to send)" ng-model="message" />
+					            </div>
+					            <div  class="col-md-4 col-xs-1 col-sm-2 chat__icons">
+					              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+					              <a ng-click="photoRequestOptions()"><i class="fa fa-camera" aria-hidden="true"></i></a>
+					            </div>
+					            <div ng-hide="true" class="col-md-2 col-xs-1 col-sm-2 chat__icons">
+					              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+					              <a ng-click="photoSharing = !photoSharing"><i class="fa fa-camera" aria-hidden="true"></i></a>
+					            </div>
+					            <div ng-show="false" class="col-md-2 col-xs-1 col-sm-2 chat__icons">
+					              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+					              <a ng-click="photoSharingSent = !photoSharingSent"><i class="fa fa-camera" aria-hidden="true"></i></a>
+					            </div>
+					          </div>
+					    	 </div>
+					    	</div>
+					    	<div class="chat-mesg-right clearfix">
+						    	<div class="mob-res">
+						        	<button class="btn btn-default chat-buttons disable send" >Send</button>
+						    	</div>
+					    	</div>
+					    	</div>
+				       </form>
+			       </div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="screenshot-wrapper">
+		<canvas id="your_canvas" style="display:none"></canvas>
+	</div>
+</div>
+<script>
+	$(document).ready(function(){
+	    $(".got").click(function(){
+	        $(".wrapper-1").hide();			       
+	    });			    
+	});
+
+	$( function() {
+  $('td').click( function() {
+    $(this).css('color', 'red')
+  } );
+} );
+</script>
+||||||| merged common ancestors
+			</div>
+		</div>
+		<div class="chat-container video__screen__chat-container">
+		  	<div class="row">
+		  	<div ui-view></div>
+		  	<div ui-view="chatHeads"></div>
+		  	<div ui-view="messages"></div>
+		  	<div ui-view="end"></div>
+		  	</div>
+		</div>
+		<div class="footer-chat video__footer__chat">
+			<div id="photoSharingButton" class="photoSharingButton" ng-class="{'active' : photoSharing}">
+				<p>
+					<button class="btn btn-default chat-buttons" ng-click="sendPhotoSharingRequest()">Send Photo Sharing Request</button>
+					<a ng-click="photoSharing = !photoSharing" class="pull-right">x</a>
+				</p>
+			</div>
+			<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingSent}">
+				<p>You already sent a photo sharing request. Please wait for chat partner to respond. <a ng-click="photoSharingSent = !photoSharingSent" class="pull-right">x</a></p>
+				
+			</div>
+			<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingRejected}">
+				<p>Chat partner has declined your photo-sharing request <a ng-click="photoSharingRejected = !photoSharingRejected" class="pull-right">x</a></p>
+			</div>
+			<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingOptions}">
+				<p style="text-align:right" class="photoButtons">
+					<a ng-click="" class="photoButton" >
+						<img src="assets/images/camera-photo.png">
+						Take a photo 
+					</a> 
+					<a ng-click="" class="photoButton">
+						<img src="assets/images/upload-photo.png" alt="">
+						Upload Photo
+					</a>
+					<a ng-click="photoSharingOptions = !photoSharingOptions" class="pull-right" style="margin-top: 25px;margin-left: 50px;">x</a>
+				</p>
+			</div>
+			<div class="row">
+		       <div class="col-md-1 col-xs-2 col-sm-1 mob-res">
+		          <button ng-hide="quitAlert" ng-click="quit()" type="button" class="btn btn-default chat-buttons disable quit">Quit</button>
+		          <button ng-show="quitBtn" ng-click="quitChat()" type="button" class="btn btn-default chat-buttons report quit">Sure ?</button>
+		          <button emojiPicker="emojiBtn" ng-show="newChat" ng-click="newChat()" type="button" class="btn btn-default chat-buttons quit emojiBtn">New</button>
+		       </div>
+		       <div class="col-md-11 col-xs-10 col-sm-11 mob-res">
+		       		<form ng-submit="sendMessage()">
+		       		 <div class="chat-mesg">
+		       		   <div class="chat-mesg-left video__mesg__left">
+				    	<div class="input-img">
+				          <div class="row">
+				            <div class="col-md-8 col-xs-8 col-sm-10 ">
+				              <input class="form-control" id="focusedInput" type="text" placeholder="Write a message...(Enter to send)" ng-model="message" />
+				            </div>
+				            <div  class="col-md-4 col-xs-1 col-sm-2 chat__icons">
+				              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+				              <a ng-click="photoRequestOptions()"><i class="fa fa-camera" aria-hidden="true"></i></a>
+				            </div>
+				            <div ng-hide="true" class="col-md-2 col-xs-1 col-sm-2 chat__icons">
+				              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+				              <a ng-click="photoSharing = !photoSharing"><i class="fa fa-camera" aria-hidden="true"></i></a>
+				            </div>
+				            <div ng-show="false" class="col-md-2 col-xs-1 col-sm-2 chat__icons">
+				              <a><i class="fa fa-smile-o" aria-hidden="true"></i></a> 
+				              <a ng-click="photoSharingSent = !photoSharingSent"><i class="fa fa-camera" aria-hidden="true"></i></a>
+				            </div>
+				          </div>
+				    	 </div>
+				    	</div>
+				    	<div class="chat-mesg-right clearfix">
+					    	<div class="mob-res">
+					        	<button class="btn btn-default chat-buttons disable send" >Send</button>
+					    	</div>
+				    	</div>
+				    	</div>
+			       </form>
+		       </div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+<script>
+	$(document).ready(function(){
+	    $(".got").click(function(){
+	        $(".wrapper-1").hide();			       
+	    });			    
+	});
+
+	$( function() {
+  $('td').click( function() {
+    $(this).css('color', 'red')
+  } );
+} );
+</script>
+=======
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+>>>>>>> f77efb9000cdac153921546fd88f80b4ef44c01e

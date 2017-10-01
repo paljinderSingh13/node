@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Timetable</title>
+
+    <!-- bootstrap elements css -->
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+
+    <!-- google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Asap:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- custom css -->
+    <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <!--  loading icon -->
+    <div id="loading">
+        <p><img src="../../assets/images/loader.gif" alt="Loading..." />
+            <br/> Loading...
+        </p>
+    </div>
+
+    <div class="main-wrapper">
+
+        <!--  header part -->
+        <header class="header-1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="logo">
+                            <a href="#"><img src="../../assets/images/logo.png" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 pull-right">
+
+                        <!-- user logut session -->
+                        <div class="user-logout pull-right">
+                            <figure>
+                                <img src="../../assets/images/billy.png">
+                            </figure>
+                            <p>Welcome,
+                                <br><span>Billy Larson</span></p>
+                            <a href="#" class="logout"></a>
+                        </div>
+
+                        <!-- icons panel -->
+                        <div class="icons-panel pull-right">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <span class="notification">2</span>
+                                        <img src="../../assets/images/icons/notification.png" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="../../assets/images/icons/setting.png" alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- user role -->
+                        <div class="role-user pull-right">
+                            <p> administrative</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- navigation part -->
+        <div class="navigation">
+            <div class="container">
+                <div class="heading-link">
+                    <ol class="breadcrumb" style="margin-bottom: 5px;">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Departmnets</a></li>
+                        <li><a href="#">Lecture</a></li>
+                    </ol>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="with-nav">Upload Lecture</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="brand-btn medium fill pull-right" href="../../dashboard.html">
+                              go to main dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <nav class="navbar navbar-brand">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="index.html">dashboard</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="departments.html">Courses</a></li>
+                                <li><a href="staff.html">Staff</a></li>
+                            </ul>
+                        </li>
+                        <li class="active dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lecture
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="lecture-upload.html">Lecture Upload</a></li>
+                                <li><a href="lecture-adjustment.html">Adjustment</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="timetable.html">Timetable</a></li>
+                        <li><a href="#">Attendance</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Class Test
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="schedule-test.html">Schedule Test</a></li>
+                                <li><a href="#">Test Results</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="user-activity.html"><span class="notification-menu">2</span>User Activity</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- data table listing -->
+        <div class="content-box pre-load">
+            <div class="container">
+                <div class="timetable">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="period">Period 1
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                                <th class="period">Period 2
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                                <th class="period">Period 3
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                                <th class="period">Period 4
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                                <th class="period">Period 5
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                                <th class="period">Period 6
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                                <th class="period">Period 7
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                                <th class="period">Period 8
+                                    <br/><span>09:00 <b>to</b> 09:45</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="day-timetable">Mon</th>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="day-timetable">Tues</th>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="lec-upload wrapper-lecture-upload" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="current-day-lecture">
+                                <th scope="row" class="day-timetable">Wed<span>(Today)</span></th>
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                                <td class="add-data add-data-lecture" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                                    <div class="overlay"></div>
+                                    <div>
+                                        <label class="label">B.tech</label>
+                                        <label class="label">Mathematcis</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="day-timetable">Thur</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="day-timetable">Fri</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- footer part -->
+            <footer>
+                <div class="container">
+                    <p>Design and Developed by Walkwel Technology</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- TEXT file input -->
+                        <div class="form-group">
+                            <div class="brand-input">
+                                <label for="">Input Box</label>
+                                <input type="text" placeholder="Enter the value" id="" name="" class="form-control">
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-default btn-submit" data-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- jquery javascript -->
+        <script src="../../assets/js/jquery.min.js"></script>
+        <script src="../../assets/js/modernizr.custom.js"></script>
+        <script src="../../assets/js/jquery-ui.min.js"></script>
+
+        <!--   Bootstrap javascript -->
+        <script src="../../assets/js/bootstrap.js"></script>
+
+        <!--   Datatable javascript -->
+
+        <!--   Custom javascript -->
+
+        <script>
+            // timetable scripts
+
+            // For loading Content
+            function hideLoading() {
+                $('#loading').hide();
+            }
+            setTimeout(
+                function() {
+                    hideLoading();
+                    $('.content-box').removeClass('pre-load');
+                }, 1000
+            );
+
+            // for dropmenu
+            $('ul.nav li.dropdown').hover(function() {
+                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
+            }, function() {
+                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
+            });
+        </script>
+
+        <!-- jquery and javascripts -->
+</body>
+
+</html>

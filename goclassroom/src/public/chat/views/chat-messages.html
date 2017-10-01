@@ -1,0 +1,16 @@
+<div class="chat-messages">
+	<div class="chat-message" ng-repeat="chat in messages | orderBy:'createdAt':false | filter : emitTo._id" ng-class="{'sender' : chat.sender.id == user._id,'receiver' : chat.sender.id != user._id}" ng-if="!emitTo.isGroup">
+		<p ng-bind-html="chat.message" ng-if="!chat.filename && !chat.isGroup"></p>
+		<p ng-if="chat.filename" class="filePreview"><img ng-src={{"uploads/"+chat.filename}} alt="" ng-click="openPhoto(chat.filename,$event);"/></p>
+		<small>{{chat.createdAt | date : "MMM d y , hh:mm: a"}}</small>
+	</div>
+	<div class="chat-message group-message" ng-repeat="chat in messages | orderBy:'createdAt':false | filter : emitTo._id" ng-class="{'sender' : chat.sender.id == user._id,'receiver' : chat.sender.id != user._id}" ng-if="emitTo.isGroup">
+		<p><span class="view-username" ng-if="chat.sender.id != user._id">{{chat.sender.name}}</span><span ng-bind-html="chat.message" ng-if="!chat.filename && chat.isGroup"></span> </p>
+		
+		<p ng-if="chat.filename" class="filePreview"><img ng-src={{"uploads/"+chat.filename}} alt="" ng-click="openPhoto(chat.filename,$event);"/></p>
+		<small>{{chat.createdAt | date : "MMM d y , hh:mm: a"}}</small>
+		
+	</div>
+</div>
+<!-- <button ng-click="goToTop()" ng-if="messagePos() > 0" >go to top {{messagePos}}</button>
+<button ng-click="goToBottom()" ng-if="messagePos() < messageScroll()">go to bottom</button> -->

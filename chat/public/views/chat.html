@@ -1,0 +1,148 @@
+<div class="chat-header-container" ng-include="'views/master/header.html'" ></div>
+<div class="wrapper-chat" chat-height>   
+	<div ui-view="video"></div>
+	<div class="">
+	  <div class="main-chat-container" ng-style="resizeWithOffset(70)">
+		<div class=" chat-header">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<a class="chat__filter-icon" ng-click="filters()"><img src="assets/images/s-chat-icon.png"></a>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<button data-ng-disabled="!chatConnected" data-ng-click="report()" type="button" class="btn btn-default chat-buttons report grey">Report</button>
+				</div>
+			</div>
+		</div>
+		<div class="chat-container" ng-style="style">
+			<div class="scroll-body" slimscroll="{height: windowHeight - 157,alwaysVisible: true}"> 
+			  	<div class="row" id="chat-messages">
+				  	<div ui-view></div>
+				  	<div ui-view="chatHeads"></div>
+				  	<div ui-view="messages"></div>
+				  	<div ui-view="end"></div>
+			  	</div>
+		  	</div>
+		</div>
+		<div class="footer-chat">
+			<div class="footer-actions">
+				<!-- 1st step, Send request -->
+				<div id="photoSharingButton" class="photoSharingButton" ng-class="{'active' : photoSharing}">
+					<p>
+						<button class="btn btn-default chat-buttons blue-button" ng-click="sendPhotoSharingRequest()">Send Photo Sharing Request</button>
+						<a ng-click="photoSharing = !photoSharing" class="pull-right">
+							<img src="assets/images/cancel.jpg" title="close" alt="close" />
+						</a>
+					</p>
+				</div>
+				<!-- 2nd step,  -->
+				<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingSent}">
+					<p>You already sent a photo sharing request. Please wait for chat partner to respond. <a ng-click="photoSharingSent = !photoSharingSent" class="pull-right">
+						<img src="assets/images/cancel.jpg" title="close" alt="close" />
+					</a></p>
+					
+				</div>
+				<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingRejected}">
+					<p>Photo-sharing request declined , cannot send photo in this session<a ng-click="photoSharingRejected = !photoSharingRejected" class="pull-right">
+						<img src="assets/images/cancel.jpg" title="close" alt="close" />
+					</a></p>
+				</div>
+				<div id="photoSharingSentButton" class="photoSharingButton" ng-class="{'active' : photoSharingOptions}">
+					<div style="text-align:right" class="photoButtons">
+						<a class="photoButton" ng-click="openUploadScreen()">
+						</a>
+						<a ng-click="openCam()" class="photoButton takePhoto" >
+						</a> 
+						<a ng-click="photoSharingOptions = !photoSharingOptions" class="pull-right" style="margin-top: 25px;margin-left: 50px;">
+							<img src="assets/images/cancel.jpg" title="close" alt="close" />
+						</a>
+					</div>
+				</div>
+				<div class="row footer-chat__actions__row">
+			       <div class="col-md-1 mob-res footer-chat__btn__quitButtons">
+			          <button data-ng-hide="quitAlert" ng-click="quit()" type="button" class="btn btn-default chat-buttons quit grey">Quit</button>
+			          <button data-ng-show="quitBtn" ng-click="quitChat()" type="button" class="btn btn-default chat-buttons quit grey">Sure?</button>
+			          <button data-ng-show="newChat" ng-click="newChatStart()" type="button" class="btn btn-default chat-buttons quit blue-button newChat">New</button>
+			       </div>
+			       <div class="col-md-11 mob-res footer-chat__input">
+			       		<form ng-submit="sendMessage()" ng-disabled="!chatConnected">
+			       		 <div class="chat-mesg">
+			       		   <div class="chat-mesg-left">
+					    	<div class="input-img" data-ng-class="{'active' : chatConnected}">
+					          <div class="row">
+					            <div class="col-md-10 col-xs-8 footer-chat__input--text wdt-emoji-picker-parent">
+					              <input focus="true" ng-keypress="keyup()" ng-blur="keydown()" ng-disabled="!chatConnected" class="form-control wdt-emoji-bundle-enabled" id="focusedInput" type="text" placeholder="Write a message...(Enter to send)" ng-model="message" />
+					            </div>
+					            <div  class="col-md-2  col-xs-4 chat__icons">
+									<!-- grey emoji button -->
+					            	<button type="button" data-ng-disabled="!chatConnected" class="emoji--icon" data-ng-class="{'disabled' : !chatConnected}" ng-click="openEmojiPicker()" ng-show="!chatConnected">
+										<!--  <i class="fa fa-smile-o wdt-emoji-picker" aria-hidden="true"></i> -->
+										<!--<img class="wdt-emoji-picker emoji-sty" aria-hidden="true" src="assets/images/emoji.png" alt="Emoji" title="Emoji" />-->
+									</button> 
+									<!-- blue emoji button -->
+									<button type="button" class="emoji--icon blue-emoji" ng-click="openEmojiPicker()" ng-show="chatConnected && openPicker"></button> 
+									<!-- blue active emoji button -->
+									<button type="button" class="emoji--icon blue-emoji active" ng-click="closeEmojiPicker()" ng-show="closePicker">
+										<!-- <i class="fa fa-smile-o wdt-emoji-picker active" aria-hidden="true"></i> -->
+									</button> 
+									<button type="button" data-ng-disabled="!chatConnected" data-ng-class="{'disabled' : !chatConnected, 'active' : makeCameraBlue}" ng-click="photoRequestOptions()"><i class="fa fa-camera" aria-hidden="true"></i></button>
+					            </div>
+					            <div ng-hide="true" class="col-md-2  chat__icons">
+					              <a><!--<i class="fa fa-smile-o" aria-hidden="true"></i>-->
+                                      <img class="wdt-emoji-picker emoji-sty" aria-hidden="true" src="assets/images/emoji.png" alt="Emoji" title="Emoji" />
+					              </a> 
+					              <a ng-class="{'active' : photoRequested.allowed}" ng-click="photoSharingSent = !photoSharingSent"><i class="fa fa-camera" aria-hidden="true"></i></a>
+					            </div>
+					            </div>
+					            </div>
+					        </div>
+					    	<div class="chat-mesg-right clearfix">
+						    	<div class="mob-res">
+						        	<button data-ng-class="{'grey' : !chatConnected, 'blue-button' : message,'disabled' : !chatConnected}" ng-disabled="!chatConnected" class="btn btn-default chat-buttons send desktop grey" >Send</button>
+						    	</div>
+					    	</div>
+				    		</div>
+				       </form>
+			       </div>
+				</div>
+			</div>
+			<!-- emoji -->
+			<div class="wdt-emoji-popup">
+			    <a href="#" class="wdt-emoji-popup-mobile-closer"> &times; </a>
+			  <div class="wdt-emoji-menu-content">
+			    <div id="wdt-emoji-menu-header">
+			            <a class="wdt-emoji-tab active" data-group-name="Recent"></a>
+			            <a class="wdt-emoji-tab" data-group-name="People"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Nature"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Foods"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Activity"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Places"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Objects"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Symbols"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Flags"></a>
+			            <a class="wdt-emoji-tab" data-group-name="Custom"></a>
+			        </div>
+			    <div class="wdt-emoji-scroll-wrapper" >
+		            <div id="wdt-emoji-menu-items">
+		                <input id="wdt-emoji-search" type="text" placeholder="Search">
+		                <h3 id="wdt-emoji-search-result-title">Search Results</h3>
+		                <div class="wdt-emoji-sections" ng-keydown="escPicker($event)" tabindex="0" ng-click="closeEmojiPicker()"></div>
+		                <div id="wdt-emoji-no-result">No emoji found</div>
+		            </div>
+		        </div>
+			    <div id="wdt-emoji-footer">
+		            <div id="wdt-emoji-preview">
+		                <span id="wdt-emoji-preview-img"></span>
+		                <div id="wdt-emoji-preview-text">
+		                    <span id="wdt-emoji-preview-name"></span><br>
+		                    <span id="wdt-emoji-preview-aliases"></span>
+		                </div>
+		            </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- emoji end -->
+		</div>
+
+		</div>
+	</div>
+</div>

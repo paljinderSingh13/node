@@ -1,0 +1,127 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body ng-controller="mycont">
+	<div class="container">
+
+		<div class="col-lg-6">
+			<h1>Add Medicine </h1>
+		 <form role="form">
+			  <div class="form-group">
+			    <label for="email">Medicine Name</label>
+			    <input type="text" ng-model="med.medicine_name" class="form-control" >
+			  </div>
+
+			   <div class="form-group">
+			    <label for="email">Medicine Description</label>
+			    <input type="text" ng-model="med.med_desc" class="form-control" >
+			  </div>
+
+			   <div class="form-group">
+			    <label for="email">Company</label>
+			    <input type="text" ng-model="med.company" class="form-control" >
+			  </div>
+
+			   <div class="form-group">
+			    <label for="email">Salt Name</label>
+			    <input type="text" ng-model="med.salt_name" class="form-control" >
+			  </div>
+
+			  <div class="form-group">
+			    <label for="email">Tablet</label>
+			    <input type="text" ng-model="med.tablet" class="form-control" >
+			  </div>
+
+			   <div class="form-group">
+			    <label for="email">Potency</label>
+			    <input type="text" ng-model="med.potency" class="form-control" >
+			  </div>
+
+
+			  <button type="button" class="btn btn-default" ng-click="addMedicine()">add Medicine</button>
+			  <button type="button" class="btn btn-default" ng-click="update_medicine()">Update</button>
+
+			  
+			   
+		 </form>
+		</div>
+
+		<div class="col-lg-4">
+			<h1>Add Price</h1>
+		 <form role="form">
+			  <div class="form-group">
+			    <label for="email">Medicine Name</label>
+			    <select class="form-control" ng-model="rate.medid">
+			    	<option ng-repeat="medicine in medicine_data" value="{{medicine._id}}" >{{medicine.medicine_name}}</option>
+			    </select>
+			  </div>
+
+			   <div class="form-group">
+
+			    <label for="email">Shop Name </label>
+
+			     <select class="form-control" ng-model="rate.shopid">
+			    	<option ng-repeat="shop in medicine_shop" value="{{shop._id}}" >{{shop.shopname}}</option>
+			    </select>
+
+			  </div>
+
+			   <div class="form-group">
+			    <label for="email">Price </label>
+			    <input type="text" ng-model="rate.rate" class="form-control" >
+			  </div>
+
+			  <button type="button" class="btn btn-default" ng-click="addPrice()">Add Price</button>
+			  <button type="button" class="btn btn-default" ng-click="update_price()">Update</button>
+
+		</form>
+
+		</div>
+		 {{rate}} 
+
+		
+<!-- {{med}}
+ -->
+
+		
+		<!-- <input type="text" ng-model="name">-->
+		<!-- {{medicine_data}}  -->
+ 		<div class="col-lg-12">
+
+		<table class="table">
+			<tr>
+			<th>Medicine Name</th>
+			<th>Company</th>
+			<th>Salt Name</th>
+			<th>Tablet</th>
+			<th>Potency</th>
+			<th>Action</th>
+			</tr>
+			<tr>
+			<tbody>
+				
+				<tr ng-repeat="list in medicine_data">
+					<td>{{list.medicine_name}}</td>
+					<td>{{list.company}}</td>
+					<td>{{list.salt_name}} </td>
+					<td>{{list.tablet}}</td>
+					<td>{{list.potency}}</td>
+					<td>
+						<input type="button" value="Remove"  class="btn btn-danger" ng-click="remove_medicine(list._id)">
+						<input type="button" value="Update"  class=" btn btn-info"  ng-click="edit_medicine(list._id)">
+					 </td>
+
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+<script src="controller/controller.js"></script>
+
+</html>

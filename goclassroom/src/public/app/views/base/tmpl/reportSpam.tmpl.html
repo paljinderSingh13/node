@@ -1,0 +1,29 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="assets/imgs/icons/close.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+                <div>
+                  <h2>Spam Report</h2>
+                  <p>Type(s) of Problem(Check all that apply)</p>
+                  <form name="confirmNumberForm">
+                        <div class="dialog-demo-prerendered">
+                            <md-checkbox ng-model="listPrerenderedButton">Reason 1</md-checkbox>
+                            <md-checkbox ng-model="listPrerenderedButton">Reason 2</md-checkbox>
+                            <md-checkbox ng-model="listPrerenderedButton">Reason 3</md-checkbox>
+                            <md-checkbox ng-model="listPrerenderedButton">Reason 4</md-checkbox>
+                            <md-checkbox ng-model="listPrerenderedButton">Reason 5</md-checkbox>
+                          </div>
+                      <div layout="row" class="popup-btns">
+                          <md-input-container>
+                              <md-button class="md-primary md-raised md-hue-1" ng-click="accept=true" ng-disabled="confirmNumberForm.$invalid">Submit</md-button>
+                          </md-input-container>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

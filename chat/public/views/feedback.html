@@ -1,0 +1,31 @@
+	<div ng-include="'views/master/header.html'" ></div>	   
+	<div class="container" filters-height>
+	     <div class="row" ng-style="style" style="padding-top:40px;">
+	       <div class="col-md-12">
+	         <div class="feedback-outer">
+		         <h1 class="term-big text">Give us feedback </h1>
+		         <h5 class="term-heading">Let us know how we can create the best chatting experience for you!</h5>
+                 <div class="form-start">
+                 	<form ng-submit="submit()">
+                 	  <div class="form-group">
+					     <input type="text" class="form-control feed" data-ng-class="{'error':feedbackValidate}" name="name" id="exampleInputtext" placeholder="Name" ng-model="formData.name">
+					  </div>
+					  <div class="form-group">
+					     <input type="email" class="form-control feed" data-ng-class="{'error':feedbackValidate}" name="email" id="exampleInputEmail1" placeholder="Enter email" ng-model="formData.email">
+					  </div>
+					  <div class="form-group">
+					     <textarea class="form-control feed" data-ng-class="{'error':feedbackValidate}" name="message" id="exampleTextarea" placeholder="Enter your message ..." rows="4" ng-model="formData.message"></textarea>
+					  </div>
+					  <p ng-show="thankyou">Thank You for your valueable feedback</p>
+					  <button type="submit" class="btn btn-primary feed-send">Send</button>
+					</form>
+                 </div>
+		     </div>  <br>
+	       </div>
+	     </div>
+	   </div>
+	  <div ng-include="'views/master/footer.html'" ></div>
+	</div><!--wrapper-outer -->
+	
+	</body>
+</html>

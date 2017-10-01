@@ -1,0 +1,72 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="assets/imgs/icons/close.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+                <div ng-hide="otp">
+                  <h2>Please confirm your mobile number</h2>
+                  <form name="confirmNumberForm">
+                      <md-input-container class="md-block">
+                          <label>Autom Filled</label>
+                          <input name="phone" required ng-model="project.phone" md-minlength="10" md-maxlength="10" ng-pattern="/^[0-9]{10}$/">
+                          <div ng-messages="confirmNumberForm.phone.$error">
+                              <div ng-message="required">Please enter your phone number.</div>
+                              <div ng-message="minlength">Please enter valid 10 digit phone number</div>
+                              <div ng-message="maxlength">Please enter valid 10 digit phone number</div>
+                              <div ng-message="pattern">Please enter digits only</div>
+                          </div>
+                      </md-input-container>
+                      <div layout="row" class="popup-btns">
+                          <md-input-container>
+                              <md-button class="md-primary md-raised md-hue-1" ng-click="otp=true" ng-disabled="confirmNumberForm.$invalid">Confirm</md-button>
+                          </md-input-container>
+                      </div>
+                  </form>
+                </div>
+                <div ng-show="otp && !accept">
+                  <h2>Enter the OTP</h2>
+                  <form>
+                      <md-input-container class="md-block">
+                          <label>OTP</label>
+                          <input required name="text" ng-model="project.password">
+                          <div ng-messages="loginForm.password.$error">
+                              <div ng-message="required">You cannot login without password.</div>
+                          </div>
+                      </md-input-container>
+                      <div layout="row" class="popup-btns">
+                          <md-input-container>
+                              <md-button class="md-primary md-raised md-hue-1" ng-click="accept=true" ng-disabled="confirmNumberForm.$invalid">Submit</md-button>
+                          </md-input-container>
+                      </div>
+                  </form>
+                </div>
+                <div ng-show="accept">
+                  <h2>Create Password for Account</h2>
+                  <form>
+                      <md-input-container class="md-block">
+                          <label>Password</label>
+                          <input required name="password" ng-model="project.password">
+                          <div ng-messages="loginForm.password.$error">
+                              <div ng-message="required">You cannot login without password.</div>
+                          </div>
+                      </md-input-container>
+                      <md-input-container class="md-block">
+                          <label>Confirm Password</label>
+                          <input required name="password" ng-model="project.password">
+                          <div ng-messages="loginForm.password.$error">
+                              <div ng-message="required">You cannot login without password.</div>
+                          </div>
+                      </md-input-container>
+                      <div layout="row" class="popup-btns">
+                          <md-input-container>
+                              <md-button class="md-primary md-raised md-hue-1" ng-disabled="confirmNumberForm.$invalid">Create</md-button>
+                          </md-input-container>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

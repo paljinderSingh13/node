@@ -1,0 +1,21 @@
+<div class="report__popup">
+	<div class="report__popup--close">
+		<button type="button" data-ng-click="closeThisDialog();"></button>
+	</div>
+	<h4>Why do you want to report this person?</h4>
+	<div>
+	<button type="button" class="btn btn-default report__popup__button" ng-click='setReason($event, "span");'>Spam</button>
+	</div>
+	<div>
+	<button type="button" class="btn btn-default report__popup__button" ng-click='setReason($event, "scam");'>Scam</button>
+	</div>
+	<div>
+	<button type="button" class="btn btn-default report__popup__button" ng-click='setReason($event, "sexual");'>Sexual herassment</button>
+	</div>
+	<div>
+	<button type="button" class="btn btn-default report__popup__button" ng-click='setReason($event, "inappropriate");'>Inappropriate behavior</button>
+	</div>
+	<div>
+	<button class="btn btn-default report__popup__button-blue" ng-click='submitReport(reason)'>Report</button>
+	</div>
+</div>

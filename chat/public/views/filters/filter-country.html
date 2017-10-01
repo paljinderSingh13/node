@@ -1,0 +1,75 @@
+<div class="section-2nd select-chat-bg">
+	<div class="section-2nd-container">
+		<div class="message__notification">
+			<h4>Chat with random people in a country</h4>
+		</div>
+		<div class="arrow-down"><img src="assets/images/arrow-down.png"></div>	
+		 <ui-select ng-model="selectedCountry.selected"  class="js-example-basic-single" data-ng-class="{'error' : countryValidate}" > <!-- ui-validate="{required: 'validateRolesRequired($value)', admin: 'validateRolesAdmin($value)'}" -->
+		 	<ui-select-match placeholder="Enter a country...">
+		 		<span class="" ng-bind="$select.selected.name"></span>
+		 	</ui-select-match>
+			<ui-select-choices repeat="c in (countries | filter: $select.search) track by $index" >
+				<span ng-bind="c.name"></span>
+			</ui-select-choices>
+		 </ui-select>
+		<p class="country-validation-error"  data-ng-show="countryValidate">Oops! You did not select a country.</p>
+		<div class="chat__addintrest">
+			<h3>Optional: Add interests</h3>
+			<h4>Add one or more interests and we’ll try to find a match!</h4>
+			<div class="addintrest__input" match-height ng-class="{'addintrest__input--focus' : interestInputFocus}">
+				<form ng-submit="interestAdded()">
+					<li class="interests" ng-repeat="int in allInterests track by $index">
+						<span class="interests__value">{{int}}</span>
+						<a class="interests__cross" ng-click="removeInterest(int)">x</a>
+					</li>
+					<input ng-focus="interestInputFocus = true" ng-blur="interestInputFocus = false" ng-class="{'small' : smallInput}" type="text" name="fname" ng-model="interest" placeholder="{{interestText}}">
+				</form> 
+				<div ng-style="style" class="addintrest__input__overlay" ng-show="interestDisabled" ></div>
+			</div>
+		</div>
+		<div class="disable__interests" ng-hide="!smallInput" >
+			<form>
+			  <input type="checkbox"  data-ng-checked="interestDisabled" data-ng-click="disableInterest()" name="" value="">Disable interests
+			</form>
+		</div>
+		<div class="video__chat__monitored" data-ng-hide="ban">
+			<ul>
+				<li><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></li>
+				<li><h3>Video chat is monitored.</h3></li>
+			</ul>
+			
+		    <h4>Inappropriate behavior will be flagged and will result in a ban.</h4>
+            <h4>For more information see our <a  data-ui-sref="terms">Terms of Use.</a></h4>
+			
+		</div>
+        <div class="chat__temporary__ban" data-ng-show="ban">
+			<h3>You have been banned due to possible misbehavior.</h3>
+			<h4>Your ban is temporary.</h4>
+			<h4>For more information see our <a  data-ui-sref="terms">Terms of Use.</a></h4>
+		</div>		
+	</div>
+</div>
+<div class="section-above-text">
+ <p>Try KosmoChat on your desktop to use video chat!</p>
+</div>
+
+<div class="section-3rd">
+<div class="section__3rd__main__container"> 
+	<div class="section__3rd__left">
+		<div class="section-3rd-container">				
+		<button data-ng-disabled="ban" ng-click="setFilter('country',interestDisabled, selectedCountry.selected.name)" type="button" class="btn btn-default ready start">START TEXT CHAT</button>
+		</div>
+	</div>
+	<div class="section__3rd__right">
+		<div class="section-3rd-container">						
+		<button data-ng-disabled="ban" ng-click="videoChatFilter('country', interestDisabled, selectedCountry.selected.name);" type="button" class="btn btn-default ready start">START VIDEO CHAT</button>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="mobile-START-CHAT">						
+			<button data-ng-disabled="ban" ng-click="setFilter('world', interestDisabled, selectedCountry.selected.name)" type="button" class="btn btn-default ready start">START CHATTING</button>
+    </div>
+</div>
+</div>
+
+ 

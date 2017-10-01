@@ -1,0 +1,140 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Add Class</h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="classes.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all classes
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<p>
+				<md-icon>
+			    	<a href="javascript:void(0);" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+			    </md-icon>
+			    &nbsp;Please enter Class details.</p> <br>
+			<small>Class will be added to your group.</small>
+			<form name="form" ng-submit=save(formDetails)>
+				<md-input-container class="md-block">
+					<label>Select {{ label }}</label>
+					<md-select ng-model="formDetails.groupId" required> 
+					  <md-select-label>Select {{ label }}</md-select-label>
+					  <md-option ng-value="">None</md-option>
+					  <md-option ng-value="group._id" ng-repeat="group in groups" ng-if="group.isApproved">{{ group.name }}</md-option>
+					</md-select>
+					<div ng-messages="form.groupId.$error">
+						<div ng-message="required">Please select a {{ label }}.</div>
+					</div>
+				</md-input-container>
+				<br>
+				<div layout="row" layout-xs="column" ng-if="formDetails.groupId">
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Class Name</label>
+							<input required name="name" ng-model="formDetails.name" ng-keypress="addId(formDetails.name)">
+							<div ng-messages="form.name.$error">
+								<div ng-message="required">Please enter Class name.</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Class ID</label>
+							<input required name="subid" ng-model="formDetails.subid" ng-blur=checkavailability(formDetails)>
+							<div ng-messages="form.subid.$error">
+								<div ng-message="required">You cannot process without class ID</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div>
+				
+				<div layout="row" layout-xs="column" ng-if="formDetails.groupId">
+					<div flex>
+						<p>Duration</p>
+						<md-input-container class="md-block">
+							<label>Duration Time</label>
+							<input type="number" required name="durationValue" ng-model="formDetails.duration.dvalue" aria-label="Duration Value">
+							<div ng-messages="form.durationValue.$error">
+								<div ng-message="required">Please enter duration</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div flex>
+						<p>&nbsp;</p>
+						<md-input-container class="md-block">
+							<label>Duration Period</label>
+							<md-select required ng-model="formDetails.duration.dtype" name="durationPeriod" aria-label="Duration Type">
+								<md-select-label>Duration Period</md-select-label>
+							  	<md-option ng-value="duration" ng-repeat="duration in durations">{{duration}}</md-option>
+							</md-select>
+							<div ng-messages="form.durationPeriod.$error">
+								<div ng-message="required">Please select duration period</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div>
+				<div layout="row" layout-xs="column" ng-if="formDetails.groupId">
+					<div flex>
+						<p>Fee Details</p>
+						<md-input-container>
+							<md-checkbox ng-model="formDetails.isFree" ng-init="formDetails.isFree = true" ng-click="formDetails.isFree != formDetails.isFree" class="md-primary">Make It Free</md-checkbox>
+						</md-input-container>
+					</div>
+					<div flex ng-if="!formDetails.isFree">
+						<p>&nbsp;</p>
+						<md-input-container class="md-block">
+							<label>Enter Amount</label>
+							<input type="number" required name="fees" ng-model="formDetails.fees">
+							<div ng-messages="form.fees.$error">
+								<div ng-message="required">Please enter fee</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div>
+				<p ng-if="formDetails.groupId">Select Weekdays</p>
+				<md-input-container ng-if="formDetails.groupId">
+					<md-checkbox required class="md-primary" ng-repeat="item in items" ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+		                {{ item }}
+		            </md-checkbox>
+            	</md-input-container>
+            	<!-- <p ng-if="formDetails.groupId">Section Details (You need atleast one section to assign students to this class)</p>
+            	<div layout="row" layout-xs="column" ng-if="formDetails.groupId">
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Enter Section Name</label>
+							<input type="text" required name="className" ng-model="formDetails.section.name">
+							<div ng-messages="form.className.$error">
+								<div ng-message="required">Please enter section name</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Enter Starting rollnumber</label>
+							<input type="number" required name="startRollNumber" ng-model="formDetails.section.startRollNumber">
+							<div ng-messages="form.startRollNumber.$error">
+								<div ng-message="required">Please enter starting rollnumber</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div> -->
+				<md-input-container class="md-block" ng-if="formDetails.groupId">
+					<label>Description (optional)</label>
+					<textarea ng-model="formDetails.description" rows="5" md-select-on-focus></textarea>
+				</md-input-container>
+				<div layout="row" layout-align="center center">
+					<md-input-container>
+						<md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="form.$invalid">Add Class</md-button>
+					</md-input-container>
+				</div>
+			</form>
+		</md-content>
+	</div>
+</div>

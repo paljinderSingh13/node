@@ -1,0 +1,24 @@
+  <div class="container">
+     <h1 class="login-form">Login</h1>
+        <div class="card card-container">
+          <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" ng-submit="userLogin()">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control login" placeholder="Email address" required autofocus ng-model="login.username">
+                <input type="password" id="inputPassword" class="form-control login" placeholder="Password" required ng-model="login.pass">
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me">Remember me
+                    </label>
+                </div>
+                <div ng-show="loginFailed" class="alert alert-warning">Username or Password is Wrong</div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
+

@@ -1,0 +1,85 @@
+<ul>
+	<li ng-repeat="e in emoji">
+		<a href="#">{{e.shortname}}</a>
+	</li>
+</ul>
+<div id="msg" class="col-md-12 col-xs-12 messages__container" emojiPicker="emojiBtn" scroll-bottom="messages" scroll-bottom="photoRequested">
+	<!-- desktop html -->
+	<div class="message--share desktop {{m.class}}" ng-repeat="m in messages" >
+		<div class="message-text" ng-class="m.user === userId ? '':'other' " ng-hide="m.photoInfo">
+			<p ng-if="m.msg && !m.notification" ng-bind-html="m.msg">{{m.msg}}</p>	
+			<p ng-if="m.msg && m.notification">{{m.msg}}</p>	
+
+			<p ng-if="m.filePath" class="photo-received">
+				<img ng-src="{{'uploads/'+m.filePath}}" >
+				<a ng-click="openPhoto(m._id,m.filePath,m.timing,$event);" href="javascript:void(0)" >
+					Click to View
+				</a>	
+					
+			</p>	
+		</div>
+		<div class="message-text sent-photo" ng-show="m.photoInfo" >
+			<p ng-if="m.msg">{{m.msg}}</p>
+		</div>
+		<div class="message-icon" ng-if="m.filePath" >
+			<img src="assets/images/chat-box-image.png" class="chat-image-bubble" />	
+		</div>
+		<div class="message-icon other" ng-hide="m.photoInfo" ng-if="!m.filePath" ng-class="m.filePath? 'dark-arrow':'' ">
+			<img src="{{m.user === userId ? 'assets/images/chat-box.png':'assets/images/chat-box1.png'}} ">	
+		</div>
+		<div class="message-icon" ng-show="m.photoInfo">
+			<img src="assets/images/chat-box.png">	
+		</div>
+	</div>
+	<!-- user is typing -->
+	<div class="message--share desktop userIsTypingMes">
+		<div  ng-show="userTyping" class="message-text userIsTyping other" >
+			<p>Chat partner is typing...</p>
+		</div>
+	</div>
+	<!-- /desktop html -->
+	<!-- mobile html -->
+	<div class="message--share mobile  {{m.class}}" ng-class="m.user === userId ? '':'mobile-other-user' " ng-repeat="m in messages" >
+		<div class="message-text" ng-class="m.user === userId ? '':'other' " ng-hide="m.photoInfo">
+			<p ng-if="m.msg && !m.notification" ng-bind-html="m.msg">{{m.msg}}</p>	
+			<p ng-if="m.msg && m.notification">{{m.msg}}</p>	
+
+			<p ng-if="m.filePath" class="photo-received">
+				<img ng-src="{{'uploads/'+m.filePath}}" >
+				<a ng-click="openPhoto(m._id,m.filePath,m.timing)" href="javascript:void(0)" ng-hide="fileOpended">
+					Click to View
+				</a>	
+				<a href="javascript:void(0)" ng-show="fileOpended">
+					Photo Expired
+				</a>	
+			</p>	
+		</div>
+		<div class="message-text sent-photo" ng-show="m.photoInfo" >
+			<p ng-if="m.msg">{{m.msg}}</p>
+		</div>
+		<div class="message-icon" ng-class="m.user === userId ? '':'other-icon' " ng-if="m.filePath" >
+			<img src="assets/images/chat-box-image.png" class="chat-image-bubble" />	
+		</div>
+		<div class="message-icon " ng-class="m.user === userId ? '':'other-icon' " ng-hide="m.photoInfo" ng-if="!m.filePath" ng-class="m.filePath? 'dark-arrow':'' ">
+			<img src="{{m.user === userId ? 'assets/images/chat-box.png':'assets/images/chat-box1.png'}} ">	
+		</div>
+		<div class="message-icon" ng-show="m.photoInfo">
+			<img src="assets/images/chat-box.png">	
+		</div>
+	</div>
+	<!-- user is typing -->
+	<div class="message--share mobile" ng-show="userTyping" ng-class="m.user === userId ? '':'mobile-other-user' ">
+		<div class="message-text userIsTyping other" >
+			<p>Chat partner is typing...</p>
+		</div>
+	</div>
+	<!-- /mobile html -->
+
+	<div class="photoRequest-message text-center" ng-show="photoRequested.questionView">
+		<p>You received a photo sharing request</p>
+		<p><button class="btn btn-success" ng-click="photoRequestResponse('accept')">Accept</button> <button class="btn btn-danger" ng-click="photoRequestResponse('decline')">Decline</button> </p>
+	</div>
+</div>
+<div ui-view="end"></div>
+<div ui-view></div>
+<a id="bottom"></a>

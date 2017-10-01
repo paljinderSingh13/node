@@ -1,0 +1,16 @@
+client Side (CS)
+Server Side (SS)
+
+
+Guide >>
+
+#1 Socket connects to server and send initial details (ip, geo, filters, interests)  >> CS
+#2 Server adds the info to db and attach with socket and add it to array allSockets, add interests to array and emit the user >> SS
+#3 Client recieve user info from server and start a search for partner and send request to api/session with user info >> CS
+#4 Server find the type of request first (Video, Text, VideoError) and based on that perform action >> SS
+
+Case Text
+
+#4a Server checks if user have interests by using "searchInterest" function in interest controller (controllers/interest.js) and return the result >> SS
+#4a(I) If server already have users with same interests it will search for "partnerWithInterests" in search controller (controllers/search.js) and return the result >> SS
+#4a(B) If server not have users with same interests it will search for "partnerWithoutInterests" in search controller (controllers/search.js) and return the result >> SS

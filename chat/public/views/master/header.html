@@ -1,0 +1,59 @@
+			<header ng-hide="$state.current.name == 'home'">		
+				<div class="container">		
+					<div class="">		
+						<div class="col-md-6 col-sm-4">	
+							<div class="mobile-menu">
+								<a class="cursor-pointer" data-ng-class="{'active':showMenu}" data-ng-click="showMenu = !showMenu" id="toggle"><span></span></a>
+								<div id="menu" data-ng-show="showMenu"  ng-style="resizeWithOffset(70)"> 
+								  <ul>
+									<li><a ui-sref="contact">Contact</a></li>
+									<li><a ui-sref="privacy">Privacy Policy</a></li>
+									<li><a ui-sref="terms">Terms of Use</a></li>
+									<li><a ui-sref="feedback">Feedback</a></li>
+								  </ul>
+								</div>
+							</div>						
+							<div class="main-logo">							
+								<a ui-sref="filter.world"><img src="assets/images/logo.png" /></a>					
+							</div>							
+							<div class="clear"></div>						
+						</div>
+						<div class="col-md-6 col-sm-8">	
+						  	<div class="row">
+								<div class="col-md-8 col-sm-6">
+									<ul class="face-t">
+										<li><a href="https://twitter.com/share" class="twitter-share-button" data-text="I’m chatting with random people around the world. It’s awesome! #kosmochat" data-url="http://kosmochat.com" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+										<li><div class="fb-like" data-href="https://www.facebook.com/kosmochatofficial/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div></li>
+									</ul>
+								</div>
+						  	   <div class="col-md-4 col-sm-6">
+						  		 <div id="google_translate_element" class="goog termc" ></div>
+						  	   </div>	 
+						  	</div>		
+						</div>
+					</div>	
+				</div>
+			</header>
+			<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			<script>
+					if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+					 // some code..
+					}
+					else{
+						setTimeout(
+							function(){
+							console.log($('#google_translate_element').find('div').length);
+							if($('#google_translate_element').find('div').length > 0){
+
+							}
+							else{
+								function googleTranslateElementInit() {
+									new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+								}
+							}
+						},1000);
+					}
+
+			</script>
+			
+		

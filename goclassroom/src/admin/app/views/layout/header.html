@@ -1,0 +1,43 @@
+<div layout="row" layout-align="center" class="section-right-header">
+    <div flex="90" class="section-main-container">
+        <div class="section-right-header-left">
+            <div class="section-left-header">
+                <a ui-sref="dashboard"><img src="admin/assets/imgs/gc-logo.png"></a>
+            </div>
+        </div>
+        <div class="section-right-header-right">
+            <div class="section-right-name">
+                <ul>
+                    <li>
+                        <span>Administrator</span> 
+                        <span>
+                            <md-menu md-position-mode="target-right target" data-ng-controller="adminLoginCtrl">
+                              <md-button aria-label="Actions" class="md-icon-button md-warn md-hue-1" ng-click="$mdOpenMenu($event)">
+                                <md-icon><i class="material-icons">person</i></md-icon>
+                              </md-button>
+                              <md-menu-content width="2" style="top:25px;">
+                                <md-menu-item>
+                                    <md-button class="md-warn" ng-click="logout()">logout</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button class="md-warn" ng-click="goto('user.profile')">Profile</md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button class="md-warn" ng-click="goto('user.changepassword')">Change Password</md-button>
+                                </md-menu-item>
+                              </md-menu-content>
+                            </md-menu>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="admin-menu"  style="margin-top: 75px;">
+   <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-sref="master.dashboard" name="dashboard">Dashboard</md-nav-item>
+      <md-nav-item md-nav-sref="master.institutes" name="institutes">institutes</md-nav-item>
+      <md-nav-item md-nav-sref="master.groups" name="groups">Groups</md-nav-item>
+    </md-nav-bar>
+</div>

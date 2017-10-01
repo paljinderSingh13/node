@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html ng-app="medicine">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container" ng-controller="medicine">
+		<div class="col-lg-6">
+			<h1>Add medicine </h1>
+		 <form role="form">
+			  <div class="form-group">
+			    <label for="email">Medicine Name</label>
+			    <input type="text" >
+			    <input type="text" ng-model="med.medicine_name" class="form-control" >
+			  </div>
+
+			  <button type="button" class="btn btn-default" ng-click="addMedicine()">add</button>
+
+			  
+			   
+		 </form>
+		</div>
+
+		
+
+
+
+		
+		<!-- <input type="text" ng-model="name">-->
+		{{contactList}} 
+
+		<!-- <table class="table">
+			<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Address</th>
+			<th>Role</th>
+			<th>user</th>
+			<th>Action</th>
+			</tr>
+			<tr>
+			<tbody>
+				
+				<tr ng-repeat="list in contactList">
+					<td>{{list.first_name}}</td>
+					<td>{{list.last_name}}</td>
+					<td>{{list.adress}}{{list.adress2}}{{list.city}}{{list.state}} {{list.country}} </td>
+					<td>{{list.role_id}}</td>
+					<td>{{list.user_name}}</td>
+					<td><input type="button" value="remove"  class="btn-danger" ng-click="remove_user(list._id)">
+						<input type="button" value="remove"  class=" btn btn-info" ng-click="edit_user(list._id)">
+					 </td>
+
+					<td></td>
+				</tr>
+			</tbody>
+		</table> -->
+	</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+<script src="controller/medicine_controller.js"></script>
+
+</html>

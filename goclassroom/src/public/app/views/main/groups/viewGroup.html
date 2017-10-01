@@ -1,0 +1,71 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>{{ label }} / {{ group.name }} </h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="groups.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all {{ label }}
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<div layout="row">
+				<div flex>
+					<h3>
+						<md-icon>
+			    			<a href="javascript:void(0)" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+			    		</md-icon>
+			    		&nbsp;{{ group.name }}
+			    	</h3>
+					<span>Current Status</span>
+						<p ng-if="group.isApproved">Approved</p>
+						<p ng-if="!group.isApproved">Not Approved</p>
+					<br>
+				</div>
+				<div flex ng-if="user._id == group.createdUser._id && group.isApproved">
+					<md-button class="md-fab md-warn float-right" ng-click="delete(group._id)">
+			    		<md-icon>
+			    			<i class="material-icons">delete</i>
+			    		</md-icon>
+			    	</md-button>
+			    	<md-button class="md-fab md-warn float-right" ng-click="getData(group._id, 'edit')">
+			    		<md-icon>
+			    			<i class="material-icons">edit</i>
+			    		</md-icon>
+			    	</md-button>
+				</div>	
+			</div>
+			<div layout="row">
+				<div flex>
+					<p>group ID</p>
+					<span>{{ group.unid }}</span>
+				</div>			
+				<div flex>
+					<p>Address</p>
+					<span>{{ group.address }}</span>
+				</div>
+				<div flex>
+					<p>Created By</p>
+					<span>{{ group.createdUser.fullname }}</span>
+				</div>
+				<div flex>
+					<p>Created Date</p>
+					<span>{{ group.createdDate | date : 'dd-MM-yyyy' }}</span>
+				</div>
+			</div>
+			<br>
+			<div layout="row">
+				<div flex>
+					<p>About</p>
+					<span>{{ group.about }}</span>
+				</div>
+			</div>
+		</md-content>
+	</div>
+</div>

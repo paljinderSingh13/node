@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+        <a href="#" class="logo-site"><img src="public/assets/imgs/gc-logo.png"></a>
+    <div class="credentials" layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding >
+            <h3>Thank You</h3>
+            <label>Go ahead and set password for your account</label>
+            <form name="otpForm">
+                <md-input-container class="md-block">
+                <label>Password</label>
+                <input required name="otp" ng-model="project.otp">
+                <div ng-messages="otpForm.otp.$error">
+                  <div ng-message="required">Please enter password.</div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <label>Confirm Password</label>
+                <input required name="otp" ng-model="project.otp">
+                <div ng-messages="otpForm.otp.$error">
+                  <div ng-message="required">Please retype your password.</div>
+                </div>
+              </md-input-container>
+                <div layout="row" layout-align="center center">
+                    <md-input-container>
+                      <md-button class="md-primary md-raised md-hue-1" ng-disabled="otpForm.$invalid">Submit</md-button>
+                    </md-input-container>
+                </div>
+                <br>
+            </form>
+      </md-content>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="section-right-middle">
+	<div class="section-right-middle-left">
+		<div class="section-right-middle-left-2">
+			<h5>Dashboard / </h5>
+		<h4>Update Class</h4> </div>
+		<div class="clear"></div>
+	</div>
+	<div class="section-right-middle-right right-align">
+		<md-button class="md-raised md-primary" ui-sref="classes.list" aria-label="description" md-ripple-size="full">
+		<i class="icon_eye"></i>&nbsp;&nbsp;View all classes
+		</md-button>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="section-right-bottom">
+	<div class="content-here">
+		<md-content layout-padding layout-wrap>
+			<p>
+				<md-icon>
+			    	<a href="javascript:void();" class="md-primary" onclick="history.back();"><i class="material-icons">arrow_back</i></a>
+			    </md-icon>
+			    &nbsp;Please enter Class details.</p> <br>
+			<form name="form" ng-submit=update(subject)>
+				<div layout="row" layout-xs="column">
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Class Name</label>
+							<input required name="name" ng-model="subject.name">
+							<div ng-messages="form.name.$error">
+								<div ng-message="required">Please enter Class name.</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div flex>
+						<md-input-container class="md-block">
+							<label>Class ID (cannot update class ID)</label>
+							<input disabled name="subid" ng-value="subject.subid" >
+						</md-input-container>
+					</div>
+				</div>
+				<div layout="row" layout-xs="column">
+					<div flex>
+						<p>Duration</p>
+						<md-input-container class="md-block">
+							<label>Duration</label>
+							<input type="number" required name="durationValue" ng-model="subject.duration.dvalue" aria-label="Duration Value">
+							<div ng-messages="form.durationValue.$error">
+								<div ng-message="required">Please enter duration</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div flex>
+						<p>&nbsp;</p>
+						<md-input-container class="md-block">
+							<md-select ng-model="subject.duration.dtype" aria-label="Duration Type">
+							  <md-option ng-value="duration" ng-repeat="duration in durations">{{duration}}</md-option>
+							</md-select>
+							
+						</md-input-container>
+					</div>
+				</div>
+				<div layout="row" layout-xs="column">
+					<div flex>
+						<p>Fee Details</p>
+						<md-input-container>
+							<md-checkbox ng-model="subject.isFree" ng-init="subject.isFree = true" ng-click="subject.isFree != subject.isFree" class="md-primary">Make It Free</md-checkbox>
+						</md-input-container>
+					</div>
+					<div flex ng-if="!subject.isFree">
+						<p>&nbsp;</p>
+						<md-input-container class="md-block">
+							<label>Enter Amount</label>
+							<input type="number" required name="fees" ng-model="subject.fees">
+							<div ng-messages="form.fees.$error">
+								<div ng-message="required">Please enter fee</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div>
+				<p>Select Weekdays</p>
+				<md-input-container>
+					<md-checkbox required class="md-primary" ng-repeat="item in items" ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+		                {{ item }}
+		            </md-checkbox>
+            	</md-input-container>
+				<md-input-container class="md-block">
+					<label>Description (optional)</label>
+					<textarea ng-model="subject.description" rows="5" md-select-on-focus></textarea>
+				</md-input-container>
+				<input type="hidden" ng-model="subject._id">
+				<div layout="row" layout-align="center center">
+					<md-input-container>
+						<md-button type="submit" class="md-primary md-raised md-hue-1" ng-disabled="form.$invalid">Update Class</md-button>
+					</md-input-container>
+				</div>
+			</form>
+		</md-content>
+	</div>
+</div>

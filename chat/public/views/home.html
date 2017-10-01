@@ -1,0 +1,153 @@
+
+
+		  <style>
+		  ul.contact-privacy{
+		  	padding: 0;
+		  }
+		  .wrapper-1{
+		  	z-index: 1;
+		  }
+		  	@media screen and (max-width: 726px){
+		  		#google_translate_element{ display: none; }
+		  		.chat-with{ padding: 0; }
+		  	}
+		  </style>
+	  <div class="mainContent">
+	  <div class="wrapper-1" ng-hide="cookies">
+		 <div class="container-fluid">
+			  <div class="row" >
+			  	<div class="col-md-10">
+			  	 <p class="index-text">This website uses cookies to ensure you get the best experience on our website. By clicking got it or by continuing to use this website you agree to our cookie policy.
+			  	    <button ng-click="setCookies('privacy')" class="more-info"> More info </button></p>	
+			  	</div>
+			  	<div class="col-md-2 text-right">
+			  		<button type="button" class="btn btn-default got" ng-click="setCookies()">Got it!</button>
+			  	</div>
+			  </div>
+		 </div>
+	  </div>
+
+	  <div class="wrapper-banner">
+	    <div class="container">
+	     <div class="row">
+	       <div id="google_translate_element" class="goog"></div>
+	     </div>
+	      <div class="row">
+	        <div class="center-content">
+	          <img src="assets/images/kosmochat_logo-1.png">
+	          <p class="world-text">Chat anonymous with random people around the <span class="world">world,</span> in a <span class="world">country</span>, or <span class="world">nearby</span></p>
+	        </div>
+	      </div>
+	    </div>  
+	  </div>
+      <div class="wrapper-ready">
+         <div class="container">
+		   <div class="row">
+		      <button ui-sref="filter.world" type="button" class="btn btn-default ready">READY? LET’S GO!</button>
+		   </div>
+		 </div> 
+      </div>
+      <div class="container"> 
+         <div class="row">
+            <p class="chat-text">Chat random with anyone, anywhere</p>
+            <div class="col-md-4">
+              <div class="chat-with">
+              	<img src="assets/images/chat-location.png">
+              	<h4 class="filter-loc">Filter chat location</h4>
+              	<p>Filter chat location by country, nearby, or chat with people around the world.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="chat-with">
+				<img src="assets/images/chat-random.png">
+              	<h4 class="filter-loc">Chat random</h4>
+              	<p>Chat anonymous with random people. No registration required.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+             <div class="chat-with">
+              	<img src="assets/images/share-photo.png">
+              	<h4 class="filter-loc">Share photos</h4>
+              	<p>Share self-destructing photos by sending or accepting a photo-sharing request.</p>
+              </div>
+            </div>
+         </div>
+      </div>
+      <div class="wrapper-ready mobile action-button">
+         <div class="container">
+		   <div class="row">
+		      <button ng-click="setCookies('filter.world')" type="button" class="btn btn-default ready">READY? LET’S GO!</button>
+		   </div>
+		 </div> 
+      </div>
+
+		<div class="container desktop">
+		  <div class="row">
+		   <div class="up-icon">
+		     <a href="#" class="go-to-top"><img src="assets/images/up-icon.png"></a>
+		     </div>  
+		  </div>
+		</div>
+		</div>
+		<div class="mobile">
+			<div class="footer--links">
+				<ul class="contact-privacy">
+					<li><a ng-click="setCookies('contact')">Contact</a></li>
+					<li> | </li>
+					<li><a ng-click="setCookies('privacy')">Privacy Policy</a></li>
+					<li> | </li>
+					<li><a ng-click="setCookies('terms')" >Terms of Use </a></li>
+					<li> | </li>
+					<li><a ng-click="setCookies('feedback')" >Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="footer--links">
+						<ul class="contact-privacy">
+							<li><button ng-click="setCookies('contact')">Contact</button></li>
+							<li> | </li>
+							<li><button ng-click="setCookies('privacy')">Privacy Policy</button></li>
+							<li> | </li>
+							<li><button ng-click="setCookies('terms')">Terms of Use </button></li>
+							<li> | </li>
+							<li><button ng-click="setCookies('feedback')">Feedback</button></li>
+						</ul>
+					</div>
+					<div class="footer-social-links">
+						<div class="footer__social__icons">
+							<ul class="footer_icon">
+								<li>Follow Us : </li>
+								<li><a target="_blank" href="https://www.twitter.com/kosmochat"><div><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+								<li><a target="_blank" href="https://www.facebook.com/kosmochatofficial"><div><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+								<li><a target="_blank" href="https://www.instagram.com/kosmochat"><div><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+								<li><a target="_blank" href="#"><div><i class="fa fa-google-plus" aria-hidden="true"></i></div></a></li>
+								<li><a target="_blank" href="https://www.pinterest.com/kosmochat"><div><i class="fa fa-pinterest-p" aria-hidden="true"></i></div></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<script>
+			$(document).ready(function(){
+			    $(".got").click(function(){
+			        $(".wrapper-1").hide();			       
+			    });			    
+			});
+			$('.go-to-top').click(function(e){
+				e.preventDefault();
+				$('body,html').animate({
+					scrollTop: 0 ,
+					}, 700
+				);
+			})
+        </script>
+        
